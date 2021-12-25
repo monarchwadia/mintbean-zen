@@ -18,6 +18,15 @@ async function seed() {
       tags: ["JS", "React"]
     }
   })
+
+  await prisma.challenge.create({
+    data: {
+      title: "Create a paint app",
+      description: "Paint apps will help you understand click event handlers, the canvas API, and SVG elements.",
+      instructions: "These are sample instructions.",
+      tags: ["JS", "React"]
+    }
+  })
 }
 
 console.log("Starting seeds.");
