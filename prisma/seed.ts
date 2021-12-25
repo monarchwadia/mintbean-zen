@@ -1,14 +1,22 @@
+import { createUser } from "../data/user";
 import { getPrisma } from "../getPrisma";
 
 const prisma = getPrisma();
 
 async function seed() {
-  await prisma.user.create({
-    data: {
-      email: "user@user.com",
-      name: "User"
-    }
-  })
+  await createUser({
+    email: "user@mintbean.io",
+    name: "Mintbean User",
+    password: "password",
+    isAdmin: false
+  });
+
+  await createUser({
+    email: "admin@mintbean.io",
+    name: "Mintbean Admin",
+    password: "password",
+    isAdmin: true
+  });
 
   await prisma.challenge.create({
     data: {

@@ -22,7 +22,7 @@ new Pug({
 const router = new KoaRouter();
 
 // static routes
-["about", "discord", "employers", "guide", "layout", "about", "login"].forEach(route => {
+["about", "discord", "employers", "guide", "layout", "about", "auth/login"].forEach(route => {
   router.get(`/${route}`, async (ctx) => await ctx.render(route))
 });
 
