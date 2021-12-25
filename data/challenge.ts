@@ -1,4 +1,4 @@
-module.exports.getChallenges = async () => {
+export const getChallenges = async () => {
   return [
     {
       id: 1,

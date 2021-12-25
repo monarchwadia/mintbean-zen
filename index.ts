@@ -1,9 +1,9 @@
-const Koa = require('koa');
-const Pug = require("koa-pug")
-var KoaRouter = require('koa-router')
-const path = require("path");
-const { getChallenges } = require('./data/challenge');
-const serve = require("koa-static");
+import Koa from 'koa';
+import Pug from "koa-pug";
+import KoaRouter from "koa-router"
+import path from "path";
+import { getChallenges } from './data/challenge';
+import serve from "koa-static";
 
 const app = new Koa();
 app.use(serve(path.resolve(__dirname, "./static")))
@@ -13,14 +13,6 @@ new Pug({
   viewPath: path.resolve(__dirname, "./views"),
   app
 })
-
-const r = (name, router) => {
-  const handler = async (ctx) => await ctx.render(name);
-  const route = `/${name};`
-  
-  router.get(route, handler)
-}
-
 const router = new KoaRouter();
 
 ["about", "discord", "employers", "guide", "layout", "about", "login"].forEach(route => {
