@@ -1,4 +1,10 @@
 extends ../layout.pug
 
 block content
-  | auth/login.pug
+  div.section
+    form.form(action="/auth/login" method="POST")
+      label Email
+        input(type='text' required name='email' value='')
+      label Password
+        input(type='password' required name='password' value='')
+      input(type='submit', value="Submit")
