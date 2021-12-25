@@ -1,0 +1,10 @@
+body {
+  font-size: 24px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+  color: rgb(0, 119, 255);
+  cursor: pointer;
+  text-decoration: underline;
+}
