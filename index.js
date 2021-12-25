@@ -23,7 +23,7 @@ const r = (name, router) => {
 
 const router = new KoaRouter();
 
-["about", "discord", "employers", "guide", "layout", "about"].forEach(route => {
+["about", "discord", "employers", "guide", "layout", "about", "login"].forEach(route => {
   router.get(`/${route}`, async (ctx) => await ctx.render(route))
 });
 
