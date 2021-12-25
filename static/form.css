@@ -1,0 +1,22 @@
+form.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+form.form label {
+  display: flex;
+  flex-direction: column;
+}
+form.form input {
+  padding: 12px;
+  border: 1px solid black;
+}
+form.form textarea {
+  padding: 12px;
+  border: 1px solid black;
+}
+form.form input[type="submit"] {
+  width: fit-content;
+  background-color: black;
+  color: white;
+}

@@ -30,6 +30,7 @@ const router = new KoaRouter();
 router.get("/", async (ctx) => await ctx.render("index", {challenges: await getChallenges()}))
 
 // challenge routes
+router.get("/challenge/new", async (ctx) => await ctx.render("challenge/new"))
 router.get("/challenge/:id", async (ctx) => await ctx.render("challenge/view", {challenge: await getChallengeBy({id: ctx.params.id})}))
 
 // register the routes
