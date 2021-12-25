@@ -1,5 +1,7 @@
 # Development 
 
+## Database Setup
+
 First copy the `.env` file
 
 ```
@@ -20,3 +22,7 @@ Then, run `yarn prisma db push` to create the schemas
 Then, run `yarn seed` to seed the database
 
 Tada.
+
+## Dev
+
+`yarn dev` and visit `localhost:3000`

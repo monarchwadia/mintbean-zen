@@ -1,9 +1,3 @@
-export const getChallenges = async () => {
-  return [
-    {
-      id: 1,
-      title: "OK",
-      description: "OK"
-    }
-  ]
-}
+import { getPrisma } from "../getPrisma";
+
+export const getChallenges = async () => getPrisma().challenge.findMany({})

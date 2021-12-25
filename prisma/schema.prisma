@@ -18,5 +18,11 @@ model User {
 }
 
 model Challenge {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  title String
+  description String
+  instructions String
+  tags String[]
 }
+
