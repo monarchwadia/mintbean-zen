@@ -14,7 +14,10 @@ r("/guide", "page/views/guide");
 r("/about", "page/views/about");
 
 // root route
-pageRouter.get("/", async (ctx) => await ctx.render("page/views/index", {challenges: await getChallenges()}))
+pageRouter.get("/", async (ctx) => {
+  console.log(ctx.state.currentUser);
+  await ctx.render("page/views/index", { challenges: await getChallenges()})
+})
 
 // ["about", "discord", "employers", "guide", "layout", "about", "auth/login"].forEach(route => {
 //   router.get(`/${route}`, async (ctx) => await ctx.render(route))

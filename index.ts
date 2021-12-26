@@ -8,6 +8,7 @@ import { pageRouter } from './lib/page/router';
 import { challengeRouter } from './lib/challenge/router';
 import { authRouter } from './lib/auth/router';
 import { staticMiddleware } from './lib/static/middleware';
+import { setUser } from './lib/auth/middleware';
 
 const app = new Koa();
 
@@ -17,14 +18,11 @@ const pugBasePath = path.join(__dirname, "./lib");
 new Pug({
   app, 
   viewPath: pugBasePath, 
-  basedir: pugBasePath
-})
+  basedir: pugBasePath,
+});
 
-// main router
-const router = new KoaRouter();
-
-// register the routes
-app.use(router.routes());
+// set the user in ctx.state
+app.use(setUser);
 
 app.use(mount("/", pageRouter.routes()));
 app.use(mount("/static", staticMiddleware));

@@ -1,5 +1,4 @@
 import KoaRouter from "koa-router"
-import { getChallengeBy, getChallenges } from "../challenge/dao";
 
 export const authRouter = new KoaRouter();
 
