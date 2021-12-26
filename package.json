@@ -5,7 +5,7 @@
   "author": "Zero Projects Inc",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "ts-node-dev index.ts",
+    "dev": "ts-node-dev --debug --exit-child index.ts ",
     "fresh": "./scripts/fresh.sh",
     "seed": "ts-node prisma/seed.ts",
     "psql": "psql -U postgres mintbean_simple"
