@@ -1,4 +1,4 @@
-import { createUser } from "../data/user";
+import { createUser } from "../lib/user/dao";
 import { getPrisma } from "../getPrisma";
 
 const prisma = getPrisma();

@@ -1,6 +1,6 @@
 import { User } from "@prisma/client"
-import { getPrisma } from "../getPrisma"
-import { hash } from "../utils/crypto";
+import { getPrisma } from "../../getPrisma"
+import { hash } from "../common/utils/crypto";
 
 // replace "passwordHash" with "password"
 type CreateUserParams = Omit<
