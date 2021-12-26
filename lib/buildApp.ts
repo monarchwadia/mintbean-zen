@@ -6,7 +6,7 @@ import { pageRouter } from '../lib/page/router';
 import { challengeRouter } from '../lib/challenge/router';
 import { authRouter } from '../lib/auth/router';
 import { staticMiddleware } from '../lib/static/middleware';
-import { setUser } from '../lib/auth/middleware';
+import { setUser } from './auth/setUser';
 
 
 export const buildApp = () => {

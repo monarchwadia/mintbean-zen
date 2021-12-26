@@ -16,6 +16,5 @@ r("/about", "page/views/about");
 
 // root route
 pageRouter.get("/", async (ctx) => {
-  console.log(ctx.state.currentUser);
   await ctx.render("page/views/index", { challenges: await getChallenges()})
 })

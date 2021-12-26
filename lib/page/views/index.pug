@@ -1,10 +1,12 @@
 extends /common/views/layout.pug
 
 block content
-  .section Mintbean helps developers and designers get hired based on their skillset. As a side effect, it also helps grow their skills and learn to love programming.
-  | #{currentUser.email}
-  .section Mintbean's hiring challenges are, and will be, free forever for developers and designers.
-  .section 👉 The next hiring challenge will be released on Jan 5th
+  .section Mintbean's challenges help developers and designers get hired, upgrade their skills, and fall in love with their craft. 
+  .section 
+    p 🎁 Mintbean's hiring challenges are free forever.
+    p 👾 Join 4,000+ other makers on our 
+      a(href="https://discord.gg/j7CjBAz", target="_blank", rel="noopener noreferrer") Discord Server
+    p 👉 The next hiring challenge will be released on Jan 5th
   for challenge in challenges
     div.section
       div(style="padding: 12px 24px; border: 2px solid gray; border-radius: 10px; display: flex; flex-direction: column; gap: 24px;")
