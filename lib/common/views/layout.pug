@@ -21,7 +21,10 @@ html
           | |
           a(href="/employers") For Employers
           | |
-          a(href="/auth/login") Login
+          if isLoggedIn
+            a(href="/auth/logout") Logout
+          else
+            a(href="/auth/login") Login
       div
         block content
       div
