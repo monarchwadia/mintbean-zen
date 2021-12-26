@@ -1,4 +1,4 @@
-import Koa from 'koa';
+import Koa, { DefaultState } from 'koa';
 import Pug from "koa-pug";
 import path from "path";
 import mount from 'koa-mount';
@@ -8,8 +8,9 @@ import { authRouter } from '../lib/auth/router';
 import { staticMiddleware } from '../lib/static/middleware';
 import { setUser } from '../lib/auth/middleware';
 
+
 export const buildApp = () => {
-  const app = new Koa();
+  const app = new Koa<DefaultState>();
 
   // Pug templating engine
   const pugBasePath = path.join(__dirname, "../lib");

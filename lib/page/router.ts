@@ -1,7 +1,8 @@
 import KoaRouter from "koa-router"
 import { getChallenges } from "../challenge/dao";
+import { MintbeanRouterState } from "../state.type";
 
-export const pageRouter = new KoaRouter();
+export const pageRouter = new KoaRouter<MintbeanRouterState>();
 
 const r = (route: string, viewPath: string) => {
   pageRouter.get(route, async (ctx) => await ctx.render(viewPath))
@@ -18,7 +19,3 @@ pageRouter.get("/", async (ctx) => {
   console.log(ctx.state.currentUser);
   await ctx.render("page/views/index", { challenges: await getChallenges()})
 })
-
-// ["about", "discord", "employers", "guide", "layout", "about", "auth/login"].forEach(route => {
-//   router.get(`/${route}`, async (ctx) => await ctx.render(route))
-// });
