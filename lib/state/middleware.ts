@@ -1,8 +1,8 @@
 import { Middleware } from "koa";
-import * as _ from "../state.type"
-import { MintbeanRouterState } from "../state.type";
+import * as _ from "./type"
+import { MintbeanRouterState } from "./type";
 
-export const setUser: Middleware<MintbeanRouterState> = async (ctx, next) => {
+export const setUserMiddleware: Middleware<MintbeanRouterState> = async (ctx, next) => {
   ctx.state.currentUserId = "1";
 
   ctx.state.currentUser = {

@@ -1,6 +1,6 @@
 import KoaRouter from "koa-router"
 import { getChallenges } from "../challenge/dao";
-import { MintbeanRouterState } from "../state.type";
+import { MintbeanRouterState } from "../state/type";
 
 export const pageRouter = new KoaRouter<MintbeanRouterState>();
 

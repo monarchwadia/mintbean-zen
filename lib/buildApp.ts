@@ -6,7 +6,7 @@ import { pageRouter } from '../lib/page/router';
 import { challengeRouter } from '../lib/challenge/router';
 import { authRouter } from '../lib/auth/router';
 import { staticMiddleware } from '../lib/static/middleware';
-import { setUser } from './auth/setUser';
+import { setUserMiddleware } from './state/middleware';
 
 
 export const buildApp = () => {
@@ -21,7 +21,7 @@ export const buildApp = () => {
   });
   
   // set the user in ctx.state
-  app.use(setUser);
+  app.use(setUserMiddleware);
   
   app.use(mount("/", pageRouter.routes()));
   app.use(mount("/static", staticMiddleware));
