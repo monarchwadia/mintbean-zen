@@ -1,7 +1,5 @@
 import { createUser } from "../lib/user/dao";
-import { getPrisma } from "../getPrisma";
-
-const prisma = getPrisma();
+import { prismaClient } from "../prismaClient";
 
 async function seed() {
   await createUser({
@@ -18,7 +16,7 @@ async function seed() {
     isAdmin: true
   });
 
-  await prisma.challenge.create({
+  await prismaClient.challenge.create({
     data: {
       title: "Build a Musical Instrument",
       description: "JavaScript is versatile and friendly for all kinds of work. Today, we'll build a musical instrument Enjoy!",
@@ -27,7 +25,7 @@ async function seed() {
     }
   })
 
-  await prisma.challenge.create({
+  await prismaClient.challenge.create({
     data: {
       title: "Create a paint app",
       description: "Paint apps will help you understand click event handlers, the canvas API, and SVG elements.",

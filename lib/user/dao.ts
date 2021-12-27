@@ -1,5 +1,5 @@
 import { User } from "@prisma/client"
-import { getPrisma } from "../../getPrisma"
+import { prismaClient } from "../../prismaClient";
 import { hash } from "../common/utils/crypto";
 
 // replace "passwordHash" with "password"
@@ -24,5 +24,5 @@ export const createUser = async (params: CreateUserParams) => {
   // We're removing it here so prisma doesn't freak out.
   delete user.password;
 
-  return getPrisma().user.create({ data: user })
+  return prismaClient.user.create({ data: user })
 }

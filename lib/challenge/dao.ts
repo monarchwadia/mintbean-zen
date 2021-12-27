@@ -1,4 +1,4 @@
-import { getPrisma } from "../../getPrisma";
+import { prismaClient } from "../../prismaClient"
 
-export const getChallenges = () => getPrisma().challenge.findMany({})
-export const getChallengeBy = ({id}: {id: string}) => getPrisma().challenge.findUnique({where: { id }})
+export const getChallenges = () => prismaClient.challenge.findMany({})
+export const getChallengeBy = ({id}: {id: string}) => prismaClient.challenge.findUnique({where: { id }})

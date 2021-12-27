@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "ts-node-dev --debug --exit-child index.ts ",
+    "test": "jest",
     "fresh": "./scripts/fresh.sh",
     "seed": "ts-node prisma/seed.ts",
     "psql": "psql -U postgres mintbean_simple"
@@ -21,7 +22,9 @@
     "typescript": "^4.5.4"
   },
   "devDependencies": {
+    "@shopify/jest-koa-mocks": "^3.0.8",
     "@types/bcrypt": "^5.0.0",
+    "@types/jest": "^27.0.3",
     "@types/koa": "^2.13.4",
     "@types/koa-mount": "^4.0.1",
     "@types/koa-router": "^7.4.4",
@@ -29,7 +32,10 @@
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "@typescript-eslint/parser": "^5.8.0",
     "eslint": "^8.5.0",
+    "jest": "^27.4.5",
+    "jest-mock-extended": "^2.0.4",
     "prisma": "^3.7.0",
+    "ts-jest": "^27.1.2",
     "ts-node": "^10.4.0",
     "ts-node-dev": "^1.1.8"
   }
