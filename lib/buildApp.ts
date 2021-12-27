@@ -2,6 +2,9 @@ import Koa, { DefaultState } from 'koa';
 import Pug from "koa-pug";
 import path from "path";
 import mount from 'koa-mount';
+import bodyParser from "koa-bodyparser";
+import session from "koa-session";
+
 import { pageRouter } from '../lib/page/router';
 import { challengeRouter } from '../lib/challenge/router';
 import { authRouter } from '../lib/auth/router';
@@ -11,6 +14,15 @@ import { setUserMiddleware } from './state/middleware';
 
 export const buildApp = () => {
   const app = new Koa<DefaultState>();
+
+  // TODO: set secrets
+  app.keys = ['some secret']
+
+  app.use(bodyParser())
+  app.use(session({
+    maxAge: 90 * 24 * 60 * 60 * 1000,
+    rolling: true // reset the cookie on every response
+  }, app))
 
   // Pug templating engine
   const pugBasePath = path.join(__dirname, "../lib");
