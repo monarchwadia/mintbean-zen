@@ -6,6 +6,7 @@ import { prismaClient } from "../../prismaClient";
 import { createUser, findUserByEmail, userExists } from "../user/dao";
 import { bang, bangLogError500 } from "../common/utils/http";
 import { compare } from "../common/utils/crypto";
+import { logger } from "../logger";
 
 export const authRouter = new KoaRouter<MintbeanRouterState>();
 
@@ -17,7 +18,6 @@ authRouter.get("/logout", async (ctx) => {
 });
 
 authRouter.post("/login", async (ctx) => {
-  console.debug("ENTERED POST LOGIN ROUTE, SESSION IS:", ctx.session);
   if (!ctx.session) {
     return bangLogError500(ctx, "auth/views/login", "CRITICAL: Session was unexpectedly falsey.")
   }
@@ -30,7 +30,6 @@ authRouter.post("/login", async (ctx) => {
   const results = schema.validate(ctx.request.body);
 
   if (results.error) {
-    console.debug("VALIDATION ERRORS");
     return bang(ctx, "auth/views/login", {
       flash: {
         error: "Form validation failed. Try again."
@@ -39,11 +38,9 @@ authRouter.post("/login", async (ctx) => {
     })
   }
 
-  console.debug("FINDING USER BY EMAIL", results.value.email);
   const user = await findUserByEmail(results.value.email);
 
   if (!user) {
-    console.debug("NO USER FOUND");
     return bang(ctx, "auth/views/login", {
       status: 409,
       flash: {
@@ -52,11 +49,9 @@ authRouter.post("/login", async (ctx) => {
     });
   }
 
-  console.log("USER FOUND", user);
   const isMatch = await compare(results.value.password, user.passwordHash);
 
   if (!isMatch) {
-    console.debug("NO MATCH");
     return bang(ctx, "auth/views/login", {
       status: 409,
       flash: {
@@ -66,7 +61,6 @@ authRouter.post("/login", async (ctx) => {
   }
 
   ctx.session.currentUserId = user.id;
-  console.log("SUCCESSFULLY LOGGED IN!", ctx.session);
   ctx.redirect("/");
 })
 
@@ -89,7 +83,6 @@ authRouter.post("/login", async (ctx) => {
 //   }
 
 //   try {
-//     console.log(results, ctx.body);
 //     const exists = await userExists(results.value.email);
 
 //     if (exists) {

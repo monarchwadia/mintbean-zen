@@ -2,6 +2,7 @@ import { Context, ParameterizedContext } from "koa";
 import {StatusCodes, getReasonPhrase} from "http-status-codes";
 import { Flash, MintbeanRouterState } from "../../state/type";
 import { ValidationError, ValidationResult } from "joi";
+import { logger } from "../../logger";
 
 type BangOptions = {
   status: StatusCodes;
@@ -31,7 +32,7 @@ export function bang(ctx: Context, view: string, options?: BangOptions) {
 }
 
 export function bangLogError500(ctx: Context, view: string, error: Error | any) {
-  console.error(error);
+  logger.error(error);
   return bang(ctx, view);
 }
 
