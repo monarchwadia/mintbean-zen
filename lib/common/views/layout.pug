@@ -19,13 +19,7 @@ html
         div
           a(href="/") Home
           | |
-          a(href="/pages/guide") Guide
-          | |
-          a(href="/pages/about") About
-          | |
           a(href="/pages/discord") Chat
-          | |
-          a(href="/pages/employers") For Employers
           | |
           if isLoggedIn
             a(href="/auth/logout") Logout
@@ -36,7 +30,7 @@ html
               a(href="/admin") Admin Panel
           else
             a(href="/auth/login") Login
-      div
+      div.section
         block content
       div
         | (c) 2022 Zero Projects Inc
