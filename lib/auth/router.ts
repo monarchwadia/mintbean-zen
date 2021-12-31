@@ -7,6 +7,7 @@ import { createUser, findUserByEmail, userExists } from "../user/dao";
 import { bang, bangLogError500 } from "../common/utils/http";
 import { compare } from "../common/utils/crypto";
 import { logger } from "../logger";
+import { MintbeanSession } from "../common/types";
 
 export const authRouter = new KoaRouter<MintbeanRouterState>();
 
@@ -60,7 +61,8 @@ authRouter.post("/login", async (ctx) => {
     })
   }
 
-  ctx.session.currentUserId = user.id;
+  const session: MintbeanSession = ctx.session;
+  session.currentUserId = user.id;
   ctx.redirect("/");
 })
 

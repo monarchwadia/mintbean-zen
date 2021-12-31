@@ -10,6 +10,8 @@ import { challengeRouter } from '../lib/challenge/router';
 import { authRouter } from '../lib/auth/router';
 import { staticMiddleware } from '../lib/static/middleware';
 import { setUserMiddleware } from './state/middleware';
+import { adminRouter } from './admin/router';
+import { persistentFlashMiddleware } from './common/middleware/persistentFlash.middleware';
 
 
 export const buildApp = () => {
@@ -32,13 +34,14 @@ export const buildApp = () => {
     basedir: pugBasePath,
   });
   
-  // set the user in ctx.state
   app.use(setUserMiddleware);
+  app.use(persistentFlashMiddleware);
   
   app.use(mount("/", pageRouter.routes()));
   app.use(mount("/static", staticMiddleware));
   app.use(mount("/auth", authRouter.routes()));
   app.use(mount("/challenge", challengeRouter.routes()));
+  app.use(mount("/admin", adminRouter.routes()));
 
   return app;
 }
