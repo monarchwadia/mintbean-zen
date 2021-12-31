@@ -5,7 +5,8 @@ import mount from 'koa-mount';
 import bodyParser from "koa-bodyparser";
 import session from "koa-session";
 
-import { pageRouter } from '../lib/page/router';
+import { homeRouter } from './home/router';
+import { pagesRouter } from './pages/router';
 import { challengeRouter } from '../lib/challenge/router';
 import { authRouter } from '../lib/auth/router';
 import { staticMiddleware } from '../lib/static/middleware';
@@ -37,7 +38,8 @@ export const buildApp = () => {
   app.use(setUserMiddleware);
   app.use(persistentFlashMiddleware);
   
-  app.use(mount("/", pageRouter.routes()));
+  app.use(mount("/", homeRouter.routes()));
+  app.use(mount("/pages", pagesRouter.routes()));
   app.use(mount("/static", staticMiddleware));
   app.use(mount("/auth", authRouter.routes()));
   app.use(mount("/challenge", challengeRouter.routes()));
