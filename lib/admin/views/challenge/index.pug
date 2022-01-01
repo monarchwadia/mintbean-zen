@@ -2,10 +2,10 @@ extends /common/views/layout.pug
 
 block content
   div.section
-    h1.text-xl Admin Panel → Challenges
+    h1.text-xl.bold Admin Panel → Challenges
   div.section.flex.flex-col.gap-2
     a(href="/admin/challenge/create") Create a new challenge
     for challenge in challenges
       div.card 
-        p.text-lg #{challenge.title}
+        p.text-lg.bold #{challenge.title}
         a(href="/admin/challenge/" + challenge.id) More

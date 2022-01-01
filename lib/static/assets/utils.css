@@ -1,3 +1,7 @@
+.bold {
+  font-weight: 700;
+}
+
 .text-xs {
   font-size: 0.8em;
 }
@@ -46,7 +50,20 @@
 }
 
 .card {
-  border: 2px solid gray;
-  border-radius: 10px;
-  padding: 12px 24px;
+  background-color:var(--white-1);
+  border: 5px solid var(--pink);
+  border-radius: 24px;
+  padding: 36px 36px;
+  box-shadow: rgba(167, 167, 167, 0.438) 6px 6px 2px;
+  transition: box-shadow 200ms;
+}
+.card:hover {
+  box-shadow: rgba(167, 167, 167, 0.74) 6px 6px 2px;
+}
+
+.divider {
+  width: 25px;
+  height: 3px;
+  /* margin: 20px 0px; */
+  background-color: var(--pink);
 }

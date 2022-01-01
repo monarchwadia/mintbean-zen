@@ -10,6 +10,7 @@ block content
   for challenge in challenges
     div.section
       div.card(style="display: flex; flex-direction: column; gap: 24px;")
-        div.text-lg #{challenge.title}
+        div.text-lg.bold #{challenge.title}
+        .divider
         div #{challenge.description}
         a(href="/challenge/" + challenge.id) View

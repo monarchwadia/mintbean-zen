@@ -1,10 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Titillium+Web:wght@400;600&display=swap');
+
 body {
   font-size: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: var(--font-body);
+  font-weight: 400;
+  background-color: var(--white-1);
+  color: var(--black); 
 }
 
 a {
-  color: rgb(0, 119, 255);
+  color: var(--pink);
   cursor: pointer;
   text-decoration: underline;
+}
+
+a:hover {
+  color: rgb(255, 98, 221);
+}
+
+:root {
+  --black: rgb(22, 23, 24);
+  --pink: rgb(255, 0, 200);
+
+  --white-1: rgb(255, 255, 255);
+  --white-2: rgb(216, 216, 216);
+
+  --font-body: 'Barlow', Verdana, Geneva, Tahoma, sans-serif;
 }

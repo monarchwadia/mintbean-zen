@@ -3,7 +3,7 @@ include /challenge/views/mixins/challenge_form
 
 block content
   .section
-    h2.text-lg Admin Panel → Challenges →
-    h1.text-xl #{challenge.title}
+    h2.text-lg.bold Admin Panel → Challenges →
+    h1.text-xl.bold #{challenge.title}
   .section
     +challenge_form(action="#", challenge=challenge)

@@ -4,19 +4,30 @@ form.form {
   gap: 12px;
 }
 form.form label {
+  font-weight: 700;
   display: flex;
   flex-direction: column;
 }
 form.form input {
+  font: var(--font-body);
+  font-weight: normal;
   padding: 12px;
-  border: 1px solid black;
+  margin-top: 12px;
+  border: 5px solid var(--black);
+  border-radius: 50px;
 }
 form.form textarea {
+  font-size: 1em;
+  font: var(--font-body);
+  font-weight: normal;
   padding: 12px;
-  border: 1px solid black;
+  border: 1px solid var(--black);
 }
 form.form input[type="submit"] {
+  border: none;
+  padding: 18px;
   width: fit-content;
-  background-color: black;
+  background-color: var(--pink);
   color: white;
+  cursor: pointer;
 }
