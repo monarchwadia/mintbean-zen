@@ -1,0 +1,12 @@
+extends /common/views/layout.pug
+
+block content
+  div.section
+    h2.text-lg Admin Panel → Challenges →
+    h1.text-xl #{challenge.title}
+  .section
+    a(href="/admin/challenge/" + challenge.id + "/edit") Edit
+  .section 
+    h2.text-lg Statistics 
+    div coming soon
+  

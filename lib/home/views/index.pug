@@ -9,7 +9,7 @@ block content
     p 👉 The next hiring challenge will be released on Jan 5th
   for challenge in challenges
     div.section
-      div(style="padding: 12px 24px; border: 2px solid gray; border-radius: 10px; display: flex; flex-direction: column; gap: 24px;")
+      div.card(style="display: flex; flex-direction: column; gap: 24px;")
         div.text-lg #{challenge.title}
         div #{challenge.description}
         a(href="/challenge/" + challenge.id) View

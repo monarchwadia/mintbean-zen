@@ -1,0 +1,9 @@
+extends /common/views/layout.pug
+include /challenge/views/mixins/challenge_form
+
+block content
+  .section
+    h2.text-lg Admin Panel → Challenges →
+    h1.text-xl #{challenge.title}
+  .section
+    +challenge_form(action="#", challenge=challenge)

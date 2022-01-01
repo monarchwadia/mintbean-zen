@@ -1,6 +1,8 @@
 # Challenges
-- Admin can create challenges
-- Admin can archive challenges
+- Admin can create challenges unpublished
+- Admin can publish challenges
+- Admin can unpublish challenges (at which point, the user sees "This challenge was unpublished.")
+- Admin can edit challenges
 - User can leave comments on challenges (plaintext)
 - User can leave replies to challenge comments, unlimited depth (plaintext)
 - User can submit projects on challenges (plaintext)
