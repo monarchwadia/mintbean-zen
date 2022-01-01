@@ -14,19 +14,19 @@ html
       if flash.error
         div(style="padding: 12px 48px; width: 100%; background-color: var(--red); color: white;") #{flash.error}
     div.section.navbar(style="padding: 24px 48px")
-      div.flex.flex-row.gap-1
-        h1.text-lg.bold(style="margin-bottom: 18px") Mintbean: 
-        h2.text-lg.bold Hiring challenges for junior tech folks.
+      div.flex.flex-col(style="margin-bottom: 18px")
+        h1.text-xl.bold Mintbean
+        h2.text-lg.bold Hiring Challenges for Junior Devs.
       div.links.flex.flex-row.gap-2
         a(href="/") Home
         a(href="/pages/discord") Chat
         if isLoggedIn
-          a(href="/auth/logout") Logout
           a(href="/auth/profile") Profile
-          if isAdmin
-            a(href="/admin") Admin Panel
+          a(href="/auth/logout") Logout
         else
           a(href="/auth/login") Login
+        if isAdmin
+          a(href="/admin" style="background-color: var(--red)") Admin Panel
     div(style="padding: 48px; flex-grow: 1; margin: auto; max-width: 900px; width: 100%;").section
         block content
     div(style="padding: 24px 48px; border-top: 5px solid var(--black)")
