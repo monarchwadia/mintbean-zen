@@ -8,20 +8,21 @@ form.form label {
   display: flex;
   flex-direction: column;
 }
-form.form input {
+form.form input, form.form textarea {
   font: var(--font-body);
   font-weight: normal;
-  padding: 12px;
-  margin-top: 12px;
+  padding: 12px 36px;
   border: 5px solid var(--black);
-  border-radius: 50px;
+  border-radius: 24px 0 24px 24px;
+  margin-top: 12px;
+  resize: vertical;
+  word-wrap: break-word;
+  box-shadow: rgba(167, 167, 167, 0.438) 6px 6px 2px;
 }
 form.form textarea {
-  font-size: 1em;
-  font: var(--font-body);
-  font-weight: normal;
-  padding: 12px;
-  border: 1px solid var(--black);
+  padding-top: 36px;
+  padding-bottom: 36px;
+  padding: 36px;
 }
 form.form input[type="submit"] {
   border: none;
