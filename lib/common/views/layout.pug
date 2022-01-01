@@ -5,6 +5,7 @@ html
     link(rel="stylesheet", href="/static/base.css")
     link(rel="stylesheet", href="/static/utils.css")
     link(rel="stylesheet", href="/static/form.css")
+    link(rel="stylesheet", href="/static/navbar.css")
   body
   div(style="width: 100%; height: 48px;")
     if flash
@@ -12,25 +13,21 @@ html
         div(style="padding: 12px 48px; width: 100%; background-color: green; color: white;") #{flash.success}
       if flash.error
         div(style="padding: 12px 48px; width: 100%; background-color: red; color: white;") #{flash.error}
+    div.section.navbar(style="padding: 24px 48px")
+      div.flex.flex-row.gap-1
+        h1.text-lg.bold(style="margin-bottom: 18px") Mintbean: 
+        h2.text-lg.bold Hiring challenges for junior tech folks.
+      div.links.flex.flex-row.gap-2
+        a(href="/") Home
+        a(href="/pages/discord") Chat
+        if isLoggedIn
+          a(href="/auth/logout") Logout
+          a(href="/auth/profile") Profile
+          if isAdmin
+            a(href="/admin") Admin Panel
+        else
+          a(href="/auth/login") Login
     div(style="padding: 48px; max-width: 800px")
-      div.section
-        div.flex.flex-row.gap-1
-          h1.text-lg.bold Mintbean: 
-          h2.text-lg.bold Hiring challenges for junior tech folks.
-        div.flex.flex-row.gap-1
-          a(href="/") Home
-          | |
-          a(href="/pages/discord") Chat
-          | |
-          if isLoggedIn
-            a(href="/auth/logout") Logout
-            | |
-            span #{currentUser.name}
-            if isAdmin
-              | |
-              a(href="/admin") Admin Panel
-          else
-            a(href="/auth/login") Login
       div.section
         block content
       div

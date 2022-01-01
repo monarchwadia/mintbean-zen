@@ -26,4 +26,7 @@ a:hover {
   --white-2: rgb(216, 216, 216);
 
   --font-body: 'Barlow', Verdana, Geneva, Tahoma, sans-serif;
+
+  --leaf-shadow: rgba(167, 167, 167, 0.438) 6px 6px 2px;
+  --leaf-radius: 24px 0 24px 24px;
 }
