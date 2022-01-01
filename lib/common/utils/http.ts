@@ -8,6 +8,7 @@ import { flash } from "./flash";
 type BangOptions = {
   status: StatusCodes;
   flash?: Flash;
+  locals?: any;
 }
 /**
  * Renders a template with an error status. By default, it will render a 500 internal server error.
@@ -29,7 +30,8 @@ export function bang(ctx: Context, view: string, options?: BangOptions) {
 
   ctx.status = opts.status;
   flash(ctx, opts.flash);
-  return ctx.render(view);
+  console.log("LOCALS", view, opts.locals)
+  return ctx.render(view, opts.locals);
 }
 
 export function bangLogError500(ctx: Context, view: string, error: Error | any) {

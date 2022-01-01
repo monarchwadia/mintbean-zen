@@ -10,9 +10,9 @@ html
   div(style="width: 100%; height: 48px;")
     if flash
       if flash.success
-        div(style="padding: 12px 48px; width: 100%; background-color: green; color: white;") #{flash.success}
+        div(style="padding: 12px 48px; width: 100%; background-color: var(--green); color: white;") #{flash.success}
       if flash.error
-        div(style="padding: 12px 48px; width: 100%; background-color: red; color: white;") #{flash.error}
+        div(style="padding: 12px 48px; width: 100%; background-color: var(--red); color: white;") #{flash.error}
     div.section.navbar(style="padding: 24px 48px")
       div.flex.flex-row.gap-1
         h1.text-lg.bold(style="margin-bottom: 18px") Mintbean: 

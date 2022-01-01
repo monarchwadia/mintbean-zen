@@ -20,7 +20,9 @@ a:hover {
 
 :root {
   --black: rgb(22, 23, 24);
-  --pink: rgb(255, 0, 200);
+  --pink: rgb(221, 99, 195);
+  --green: #56b656;
+  --red: #df5f5f;
 
   --white-1: rgb(255, 255, 255);
   --white-2: rgb(216, 216, 216);

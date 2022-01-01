@@ -72,10 +72,11 @@ adminRouter.post("/challenge/create", adminOnly, async (ctx) => {
   });
 
   if (existingChallenge) {
-    return bang(ctx, "auth/views/login", {
+    return bang(ctx, "admin/views/challenge/create", {
       flash: {
         error: "Challenge with that title already exists."
       },
+      locals: { challenge: value },
       status: 409
     })
   }

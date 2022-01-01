@@ -1,11 +1,11 @@
-mixin challenge_form(action, method)
-  form.form(action=action method=method || "POST")
-    if challenge && challenge.id
-      input(type='hidden' name='id' value=challenge && challenge.id || '')
+mixin challenge_form(the_challenge)
+  form.form(action=attributes.action method=attributes.method || "POST")
+    if the_challenge && the_challenge.id
+      input(type='hidden' name='id' value=the_challenge && the_challenge.id || '')
     label Title
-      input(type='text' name='title' value=challenge && challenge.title || '')
+      input(type='text' name='title' value=the_challenge && the_challenge.title || '')
     label Description
-      textarea(name='description') #{challenge && challenge.description || ''}
+      textarea(name='description') #{the_challenge && the_challenge.description || ''}
     label Instructions
-      textarea(name='instructions') #{challenge && challenge.instructions || ''}
+      textarea(name='instructions') #{the_challenge && the_challenge.instructions || ''}
     input(type='submit', value="Submit")
