@@ -4,6 +4,7 @@ import KoaRouter from "koa-router"
 import { prismaClient } from "../../prismaClient";
 import { getChallenges } from "../challenge/dao";
 import { adminOnly } from "../common/middleware/adminOnly.middleware";
+import { flash } from "../common/utils/flash";
 import { bang } from "../common/utils/http";
 import { MintbeanRouterState } from "../state/type";
 
@@ -82,6 +83,12 @@ adminRouter.post("/challenge/create", adminOnly, async (ctx) => {
   const newChallenge = await prismaClient.challenge.create({
     data: value
   });
+
+  flash(ctx, {
+    success: "Successfully created challenge."
+  }, {
+    persistent: true
+  })
 
   return ctx.redirect(`/admin/challenge/${newChallenge.id}`)
 })

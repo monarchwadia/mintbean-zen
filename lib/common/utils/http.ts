@@ -3,6 +3,7 @@ import {StatusCodes, getReasonPhrase} from "http-status-codes";
 import { Flash, MintbeanRouterState } from "../../state/type";
 import { ValidationError, ValidationResult } from "joi";
 import { logger } from "../../logger";
+import { flash } from "./flash";
 
 type BangOptions = {
   status: StatusCodes;
@@ -27,7 +28,7 @@ export function bang(ctx: Context, view: string, options?: BangOptions) {
   // render
 
   ctx.status = opts.status;
-  ctx.state.flash = opts.flash;
+  flash(ctx, opts.flash);
   return ctx.render(view);
 }
 
