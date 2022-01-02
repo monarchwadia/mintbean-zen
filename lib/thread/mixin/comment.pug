@@ -1,0 +1,17 @@
+//- This depends on CommentNodes, with children sorted in order of display
+mixin comment(commentNode)
+  - comment = commentNode.data
+  div(style="padding: 0 12px 0 36px")
+    div.flex.flex-col(style="padding: 12px 0")
+      div.flex.flex-row.text-xs(style="color: var(--white-3)")
+        div(style="width: 24px") ▲
+        div #{comment.user.name}, #{relativeTimeFromNow(comment.createdAt)}
+      div.flex.flex-row(style="color: var(--white-4)")
+        div(style="width: 24px")
+        div #{comment.body}
+      div.flex.flex-row.text-xs(style="color: var(--white-4)")
+        div(style="width: 24px")
+        a(href="#") Reply
+    for childNode in commentNode.children
+      +comment(childNode)
+

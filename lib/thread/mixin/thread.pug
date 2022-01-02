@@ -1,0 +1,17 @@
+include /thread/mixin/comment
+
+mixin thread(thread, commentTree)
+  .flex.flex-col
+    .flex.flex-row 
+      div Comment
+    .flex.flex-row
+      div This week
+      div This month
+      div All time
+      | |
+      div Hottest
+      div Latest
+    .flex.flex-col
+      for commentNode in commentTree
+        +comment(commentNode)
+        

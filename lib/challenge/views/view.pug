@@ -1,4 +1,5 @@
 extends /common/views/layout.pug
+include /thread/mixin/thread
 
 block content
   div.section
@@ -9,3 +10,5 @@ block content
     h3.text-lg.bold Instructions
   div.section
     div #{challenge.instructions}
+  .section 
+    +thread(challenge.thread, commentTree)

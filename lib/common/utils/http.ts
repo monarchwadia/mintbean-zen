@@ -45,3 +45,9 @@ export function bangValidationFailure(ctx: ParameterizedContext<MintbeanRouterSt
     status: StatusCodes.BAD_REQUEST
   })
 }
+
+export function bang404(ctx: Context) {
+    return bang(ctx, "common/views/404.pug", {
+      status: 404
+    })
+}

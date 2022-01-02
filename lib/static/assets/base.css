@@ -21,7 +21,9 @@ a {
   --red: #ec5454;
 
   --white-1: rgb(255, 255, 255);
-  --white-2: rgb(216, 216, 216);
+  --white-2: rgb(196, 196, 196);
+  --white-3: rgb(136, 136, 136);
+  --white-4: rgb(78, 78, 78);
 
   --font-body: 'Barlow', Verdana, Geneva, Tahoma, sans-serif;
 
