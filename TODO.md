@@ -3,15 +3,13 @@
 - User can see other projects that were submitted (plaintext)
 - Projects have comment threads
 - Challenges have comment threads
-
-# Challenges
-- Challenges textareas are in markdown
-
-# Comments
 - User can leave comments on challenges (plaintext)
 - User can leave replies to challenge comments, unlimited depth (plaintext)
 - User can leave comments on projects (plaintext, no threading)
 - User can leave replies to project comments, unlimited depth (plaintext)
+
+# Challenges
+- Challenges textareas are in markdown
 
 # Hiring managers
 - Hiring managers are marked as managers in comments

@@ -2,15 +2,14 @@ include /thread/mixin/comment
 
 mixin thread(thread, commentTree)
   .flex.flex-col
-    .flex.flex-row 
-      div Comment
-    .flex.flex-row
-      div This week
-      div This month
-      div All time
+    .flex.flex-row.gap-2
+      a(href="#") This week
       | |
-      div Hottest
-      div Latest
+      a(href="#") This month
+      | |
+      a(href="#") All time
+      | | 
+      a(href="#") Reply
     .flex.flex-col
       for commentNode in commentTree
         +comment(commentNode)
