@@ -2,15 +2,15 @@ include /thread/mixin/comment
 
 mixin thread(thread, commentTree)
   .flex.flex-col
-    .flex.flex-row.gap-2
-      a(href="#") This week
-      | |
-      a(href="#") This month
-      | |
-      a(href="#") All time
-      | | 
-      a(href="#") Reply
+    .flex.flex-row.gap-2.section
+      form.form(style="width: 100%")
+        textarea(name='description') #{the_challenge && the_challenge.description || ''}
+        input(type='submit', value="Add comment")
     .flex.flex-col
+      .flex.flex-row.gap-2
+        a(href="#") New
+        | |
+        a(href="#") Hot
       for commentNode in commentTree
         +comment(commentNode)
         

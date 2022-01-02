@@ -7,6 +7,8 @@
 - User can leave replies to challenge comments, unlimited depth (plaintext)
 - User can leave comments on projects (plaintext, no threading)
 - User can leave replies to project comments, unlimited depth (plaintext)
+- Upvotes
+- New, hot
 
 # Challenges
 - Challenges textareas are in markdown
