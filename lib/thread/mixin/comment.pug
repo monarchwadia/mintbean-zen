@@ -5,7 +5,8 @@ mixin comment(commentNode)
     div.flex.flex-col(style="padding: 12px 0")
       div.flex.flex-row.text-xs(style="color: var(--white-3)")
         div(style="width: 24px") ▲
-        div #{comment.user.name}, #{relativeTimeFromNow(comment.createdAt)}
+        div #{comment.user.name}, 
+          span(title=formatDatetime(comment.createdAt)) #{relativeTimeFromNow(comment.createdAt)}
       div.flex.flex-row(style="color: var(--white-4)")
         div(style="width: 24px")
         div #{comment.body}

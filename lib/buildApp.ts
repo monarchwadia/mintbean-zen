@@ -13,7 +13,7 @@ import { staticMiddleware } from '../lib/static/middleware';
 import { setUserMiddleware } from './state/middleware';
 import { adminRouter } from './admin/router';
 import { persistentFlashMiddleware } from './common/middleware/persistentFlash.middleware';
-import { relativeTimeFromNow } from './common/views/helpers/relativeTimeFromNow';
+import { relativeTimeFromNow, formatDatetime } from './common/views/helpers/time';
 
 
 export const buildApp = () => {
@@ -35,7 +35,8 @@ export const buildApp = () => {
     viewPath: pugBasePath, 
     basedir: pugBasePath,
     helperPath: [{
-      relativeTimeFromNow: relativeTimeFromNow
+      relativeTimeFromNow,
+      formatDatetime
     }]
   });
   
