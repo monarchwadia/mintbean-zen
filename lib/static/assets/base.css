@@ -14,10 +14,6 @@ a {
   text-decoration: underline;
 }
 
-a:hover {
-  color: rgb(255, 98, 221);
-}
-
 :root {
   --black: rgb(22, 23, 24);
   --pink: rgb(221, 99, 195);
