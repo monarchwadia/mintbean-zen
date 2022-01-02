@@ -1,6 +1,7 @@
 # Challenges
 - User can submit projects on challenges (plaintext)
 - User can see other projects that were submitted (plaintext)
+- Challenges textareas are in markdown
 
 # Comments
 - User can leave comments on challenges (plaintext)
