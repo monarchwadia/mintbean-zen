@@ -57,6 +57,9 @@
 .gap-5 {
   gap: 30px;
 }
+.space-between {
+  justify-content: space-between;
+}
 
 /* colors */
 
@@ -119,6 +122,7 @@
   text-decoration: none; 
   background-color: var(--pink);
   color: var(--white-1);
+  cursor: pointer;
 }
 .btn-white {
   border-radius: var(--leaf-radius);
@@ -130,7 +134,8 @@
   border-left: 4px solid #3d3d3d;
   border-right: 4px solid var(--black);
   border-bottom: 4px solid var(--black);
-  color: var(--black)
+  color: var(--black);
+  cursor: pointer;
 }
 .btn-red {
   border-radius: var(--leaf-radius);
@@ -138,5 +143,6 @@
   padding: 12px 24px;
   text-decoration: none;
   color: var(--white-1);
-  background-color: var(--red)
+  background-color: var(--red);
+  cursor: pointer;
 }

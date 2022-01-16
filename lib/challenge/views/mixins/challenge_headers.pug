@@ -1,0 +1,6 @@
+mixin challenge_headers()
+  .section 
+    .flex.flex-row.gap-2
+      a(href="/challenge/" + challenge.id).btn-white Description
+      a(href="/challenge/" + challenge.id + "/gallery").btn-white Gallery
+      a(href="/challenge/" + challenge.id + "/submit").btn-white Submit

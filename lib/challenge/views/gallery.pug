@@ -1,0 +1,19 @@
+extends /common/views/layout.pug
+include /thread/mixin/thread
+include /challenge/views/mixins/challenge_headers
+
+block content
+  +challenge_headers()
+  div.section
+    h1.text-xl.bold #{challenge.title}
+  div.section
+    for project in projects
+      div.flex.flex-col.gap-4(style="border: 4px solid var(--black); padding: 12px;")
+        div.flex.flex-row.space-between
+          div
+            h2.text-lg #{project.title}
+            div #{project.user.name}
+          div
+            span(title=formatDatetime(project.createdAt)) #{relativeTimeFromNow(project.createdAt)}
+        div.flex
+          div.btn-pink View
