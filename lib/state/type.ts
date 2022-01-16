@@ -19,13 +19,31 @@ const challengeWithThread = Prisma.validator<Prisma.ChallengeArgs>()({
       }
     },
   }
-})
+});
+
+const projectWithThread = Prisma.validator<Prisma.ProjectArgs>()({
+  include: {
+    user: {},
+    thread: {
+      include: {
+        comments: {
+          include: {
+            user: {
+
+            }
+          }
+        },
+      }
+    },
+  }
+});
 
 export interface MintbeanRouterState {
   // data
   currentUserId?: string
   currentUser?: User
   challenge?: Prisma.ChallengeGetPayload<typeof challengeWithThread>
+  project?: Prisma.ProjectGetPayload<typeof projectWithThread>
 
   // flash
   flash?: Flash;

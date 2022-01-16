@@ -1,4 +1,5 @@
 extends /common/views/layout.pug
+include /common/views/mixins/card
 
 block content
   div.section
@@ -7,7 +8,7 @@ block content
     div
       a.btn-pink(href="/admin/challenge/create") Create a new challenge
     for challenge in challenges
-      div.card.border-gray-2.flex.flex-col.gap-4
+      +card()
         p.text-lg.bold #{challenge.title}
         .divider
         a(href="/admin/challenge/" + challenge.id) More

@@ -14,6 +14,7 @@ import { setUserMiddleware } from './state/middleware';
 import { adminRouter } from './admin/router';
 import { persistentFlashMiddleware } from './common/middleware/persistentFlash.middleware';
 import { relativeTimeFromNow, formatDatetime } from './common/views/helpers/time';
+import { projectRouter } from './project/router';
 
 
 export const buildApp = () => {
@@ -49,6 +50,7 @@ export const buildApp = () => {
   app.use(mount("/auth", authRouter.routes()));
   app.use(mount("/challenge", challengeRouter.routes()));
   app.use(mount("/admin", adminRouter.routes()));
+  app.use(mount("/project", projectRouter.routes()));
 
   return app;
 }

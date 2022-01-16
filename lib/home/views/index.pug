@@ -1,4 +1,5 @@
 extends /common/views/layout.pug
+include /common/views/mixins/card
 
 block content
   .section Mintbean's challenges help developers and designers get hired, upgrade their skills, and fall in love with their craft. 
@@ -9,7 +10,7 @@ block content
     p 👉 The next hiring challenge will be released on Jan 5th
   for challenge in challenges
     div.section
-      div.card.border-gray-2(style="display: flex; flex-direction: column; gap: 24px;")
+      +card()
         div.text-lg.bold #{challenge.title}
         .divider
         div #{challenge.description}
