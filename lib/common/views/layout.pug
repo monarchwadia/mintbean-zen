@@ -18,15 +18,15 @@ html
         h1.text-xl.bold Mintbean
         h2.text-lg.bold Hiring Challenges for Junior Devs.
       div.links.flex.flex-row.gap-2
-        a.leaf.bg-pink.text-white-1(href="/") Home
-        a.leaf.bg-pink.text-white-1(href="/pages/discord") Chat
+        a.btn-pink(href="/") Home
+        a.btn-pink(href="/pages/discord") Chat
         if isLoggedIn
-          a.leaf.bg-pink.text-white-1(href="/auth/profile") Profile
-          a.leaf.bg-pink.text-white-1(href="/auth/logout") Logout
+          a.btn-pink(href="/auth/profile") Profile
+          a.btn-pink(href="/auth/logout") Logout
         else
-          a.leaf.bg-pink.text-white-1(href="/auth/login") Login
+          a.btn-pink(href="/auth/login") Login
         if isAdmin
-          a.leaf.text-white-1(href="/admin" style="background-color: var(--red)") Admin Panel
+          a.btn-red(href="/admin" style="background-color: var(--red)") Admin Panel
     div(style="padding: 48px; flex-grow: 1; margin: auto; max-width: 900px; width: 100%;").section
         block content
     div(style="padding: 24px 48px; border-top: 5px solid var(--black)")

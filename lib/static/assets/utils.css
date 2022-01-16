@@ -98,15 +98,6 @@
   border-top-color: #bebebe;
 }
 
-/* shapes and cards */
-
-.leaf {
-  border-radius: var(--leaf-radius);
-  box-shadow: var(--leaf-shadow);
-  padding: 12px 24px;
-  text-decoration: none;
-}
-
 .card {
   border-radius: var(--leaf-radius);
   box-shadow: var(--leaf-shadow);
@@ -118,4 +109,34 @@
   height: 3px;
   /* margin: 20px 0px; */
   background-color: var(--pink);
+}
+
+
+.btn-pink {
+  border-radius: var(--leaf-radius);
+  box-shadow: var(--leaf-shadow);
+  padding: 12px 24px;
+  text-decoration: none; 
+  background-color: var(--pink);
+  color: var(--white-1);
+}
+.btn-white {
+  border-radius: var(--leaf-radius);
+  box-shadow: var(--leaf-shadow);
+  padding: 12px 24px;
+  text-decoration: none; 
+  background-color: var(--white-1);
+  border-top: 4px solid #3d3d3d;
+  border-left: 4px solid #3d3d3d;
+  border-right: 4px solid var(--black);
+  border-bottom: 4px solid var(--black);
+  color: var(--black)
+}
+.btn-red {
+  border-radius: var(--leaf-radius);
+  box-shadow: var(--leaf-shadow);
+  padding: 12px 24px;
+  text-decoration: none;
+  color: var(--white-1);
+  background-color: var(--red)
 }

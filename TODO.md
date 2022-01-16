@@ -1,4 +1,5 @@
 # NEXT!
+- Disable threads for now
 - User can submit projects on challenges (plaintext)
 - User can see other projects that were submitted (plaintext)
 - Projects have comment threads
