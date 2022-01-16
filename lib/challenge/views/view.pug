@@ -10,5 +10,6 @@ block content
     h3.text-lg.bold Instructions
   div.section
     div #{challenge.instructions}
-  .section 
-    //- +thread(challenge.thread, commentTree)
+  if !"THREADS_ARE_DISABLED_RIGHT_NOW"
+    .section 
+      +thread(challenge.thread, commentTree)
