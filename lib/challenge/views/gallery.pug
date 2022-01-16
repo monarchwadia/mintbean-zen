@@ -16,4 +16,4 @@ block content
           div
             span(title=formatDatetime(project.createdAt)) #{relativeTimeFromNow(project.createdAt)}
         div.flex
-          div.btn-pink View
+          a.btn-pink(href="/project/" + project.id) View
