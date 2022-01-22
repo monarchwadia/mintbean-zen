@@ -107,10 +107,9 @@
   padding: 36px 36px;
 }
 
-.divider {
+hr {
   width: 25px;
   height: 3px;
-  /* margin: 20px 0px; */
   background-color: var(--pink);
 }
 

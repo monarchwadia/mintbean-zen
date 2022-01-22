@@ -10,5 +10,5 @@ block content
     for challenge in challenges
       +card()
         p.text-lg.bold #{challenge.title}
-        .divider
+        hr
         a(href="/admin/challenge/" + challenge.id) More

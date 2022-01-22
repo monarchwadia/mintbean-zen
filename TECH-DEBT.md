@@ -1,0 +1,1 @@
+- Whole app is based on EM sizing, but markdown.css is based on PX sizing.

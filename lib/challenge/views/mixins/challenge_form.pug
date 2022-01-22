@@ -1,11 +1,25 @@
 mixin challenge_form(the_challenge)
+  - descriptionId = "desc-field-" + Math.random()
+  - instFieldId = "inst-field-" + Math.random()
+  
   form.form(action=attributes.action method=attributes.method || "POST")
     if the_challenge && the_challenge.id
       input(type='hidden' name='id' value=the_challenge && the_challenge.id || '')
     label Title
       input(type='text' name='title' value=the_challenge && the_challenge.title || '')
     label Description
-      textarea(name='description') #{the_challenge && the_challenge.description || ''}
+      textarea(name='description' id=descriptionId) #{the_challenge && the_challenge.description || ''}
     label Instructions
-      textarea(name='instructions') #{the_challenge && the_challenge.instructions || ''}
+      textarea(name='instructions' id=instFieldId) #{the_challenge && the_challenge.instructions || ''}
     input(type='submit', value="Submit")
+
+  script.
+    window.addEventListener('load', () => {
+      const descriptionId = "#{descriptionId}";
+      const instFieldId = "#{instFieldId}"
+
+      new SimpleMDE({ element: document.getElementById(descriptionId)  }); 
+      new SimpleMDE({ element: document.getElementById(instFieldId)  }); 
+
+    })
+      

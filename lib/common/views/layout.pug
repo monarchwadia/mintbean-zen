@@ -6,28 +6,31 @@ html
     link(rel="stylesheet", href="/static/utils.css")
     link(rel="stylesheet", href="/static/form.css")
     link(rel="stylesheet", href="/static/navbar.css")
+    link(rel="stylesheet", href="/static/markdown.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.js")
   body
-  div.flex.flex-col(style="width: 100%; height: 100%;")
-    if flash
-      if flash.success
-        divdiv.bg-green.text-white-1(style="padding: 12px 48px; width: 100%;") #{flash.success}
-      if flash.error
-        div.bg-red.text-white-1(style="padding: 12px 48px; width: 100%;") #{flash.error}
-    div.section.navbar(style="padding: 24px 48px; border-bottom: 5px solid var(--black);")
-      div.flex.flex-col(style="margin-bottom: 18px")
-        h1.text-xl.bold Mintbean
-        h2.text-lg.bold Hiring Challenges for Junior Devs.
-      div.links.flex.flex-row.gap-2
-        a.btn-pink(href="/") Home
-        a.btn-pink(href="/pages/discord") Chat
-        if isLoggedIn
-          a.btn-pink(href="/auth/profile") Profile
-          a.btn-pink(href="/auth/logout") Logout
-        else
-          a.btn-pink(href="/auth/login") Login
-        if isAdmin
-          a.btn-red(href="/admin" style="background-color: var(--red)") Admin Panel
-    div(style="padding: 48px; flex-grow: 1; margin: auto; max-width: 900px; width: 100%;").section
-        block content
-    div(style="padding: 24px 48px; border-top: 5px solid var(--black)")
-      | (c) 2022 Zero Projects Inc
+    div.flex.flex-col(style="width: 100%; height: 100%;")
+      if flash
+        if flash.success
+          divdiv.bg-green.text-white-1(style="padding: 12px 48px; width: 100%;") #{flash.success}
+        if flash.error
+          div.bg-red.text-white-1(style="padding: 12px 48px; width: 100%;") #{flash.error}
+      div.section.navbar(style="padding: 24px 48px; border-bottom: 5px solid var(--black);")
+        div.flex.flex-col(style="margin-bottom: 18px")
+          h1.text-xl.bold Mintbean
+          h2.text-lg.bold Hiring Challenges for Junior Devs.
+        div.links.flex.flex-row.gap-2
+          a.btn-pink(href="/") Home
+          a.btn-pink(href="/pages/discord") Chat
+          if isLoggedIn
+            a.btn-pink(href="/auth/profile") Profile
+            a.btn-pink(href="/auth/logout") Logout
+          else
+            a.btn-pink(href="/auth/login") Login
+          if isAdmin
+            a.btn-red(href="/admin" style="background-color: var(--red)") Admin Panel
+      div(style="padding: 48px; flex-grow: 1; margin: auto; max-width: 900px; width: 100%;").section
+          block content
+      div(style="padding: 24px 48px; border-top: 5px solid var(--black)")
+        | (c) 2022 Zero Projects Inc

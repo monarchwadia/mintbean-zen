@@ -15,6 +15,7 @@ import { adminRouter } from './admin/router';
 import { persistentFlashMiddleware } from './common/middleware/persistentFlash.middleware';
 import { relativeTimeFromNow, formatDatetime } from './common/views/helpers/time';
 import { projectRouter } from './project/router';
+import { processMarkdown } from './common/views/helpers/sanitization';
 
 
 export const buildApp = () => {
@@ -37,7 +38,8 @@ export const buildApp = () => {
     basedir: pugBasePath,
     helperPath: [{
       relativeTimeFromNow,
-      formatDatetime
+      formatDatetime,
+      processMarkdown
     }]
   });
   

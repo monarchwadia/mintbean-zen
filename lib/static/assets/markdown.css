@@ -1,0 +1,151 @@
+/* Based on http://kevinburke.bitbucket.org/markdowncss/ */
+
+.markdown {
+  line-height: 1;
+}
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  font-weight: 400;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown p {
+  margin-bottom: 24px;
+  padding: 0;
+}
+.markdown h1 {
+  font-size: 48px;
+}
+.markdown h2 {
+  font-size: 36px;
+  margin: 24px 0 6px;
+}
+.markdown h3 {
+  font-size: 24px;
+}
+.markdown h4 {
+  font-size: 21px;
+}
+.markdown h5 {
+  font-size: 18px;
+}
+.markdown a {
+  color: #0099ff;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+.markdown ul {
+  list-style: disc;
+}
+.markdown ul ul {
+  list-style: circle;
+}
+.markdown ol {
+  list-style: decimal;
+}
+
+.markdown ul, 
+.markdown ol {
+  padding-left: 24px;
+}
+.markdown ul ul,
+.mardown ol ol {
+  padding-left: 12px;
+}
+.markdown li {
+  line-height: 24px;
+}
+.markdown li ul, 
+.markdown li ul {
+  margin-left: 24px;
+}
+.markdown p, 
+.markdown ul, 
+.markdown ol {
+  font-size: 16px;
+  line-height: 24px;
+  max-width: 540px;
+  margin-bottom: 12px;
+}
+.markdown pre {
+  background-color: var(--white-4);
+  padding: 6px 24px;
+  max-width: 800px;
+  white-space: pre-wrap;
+  border-radius: 5px;
+}
+.markdown pre code {
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+.markdown code {
+  background-color: var(--white-4);
+  color: var(--white-1);
+  padding: 2px 6px;
+  margin-left: 1px;
+  margin-right: 1px;
+  font-family: Consolas, Monaco, Andale Mono, monospace;
+  line-height: 1.5;
+  font-size: 13px;
+  border-radius: 5px;
+}
+.markdown aside {
+  display: block;
+  float: right;
+  width: 390px;
+}
+.markdown blockquote {
+  color: var(--white-3);
+  border-left: 6px solid var(--white-3);
+  margin: 1em 1em;
+  max-width: 476px;
+  padding-left: 1em;
+}
+
+.markdown blockquote p {
+  max-width: 460px;
+}
+
+.markdown hr {
+  width: 540px;
+  text-align: left;
+  margin: 0 auto 0 0;
+  color: #999;
+}
+.markdown table {
+  border-collapse: collapse;
+  margin: 1em 1em;
+  border: 1px solid #CCC;
+}
+.markdown table thead {
+  background-color: #EEE;
+}
+.markdown table thead td {
+  color: #666;
+}
+.markdown table td {
+  padding: 0.5em 1em;
+  border: 1px solid #CCC;
+}
+
+.markdown hr {
+  width: 25px;
+  height: 3px;
+  background-color: var(--pink)
+}
+
+.markdown strong {
+  font-weight: bold
+}
+.markdown em {
+  font-style: italic;
+}

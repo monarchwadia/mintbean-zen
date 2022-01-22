@@ -1,5 +1,9 @@
 import { createUser } from "../lib/user/dao";
 import { prismaClient } from "../prismaClient";
+import fs from "fs";
+import path from "path";
+
+const testMarkdown = fs.readFileSync(path.join(__dirname, "testMarkdown.md")).toString();
 
 async function seed() {
   const user = await createUser({
@@ -21,8 +25,8 @@ async function seed() {
   const musicalInstrumentChallenge = await prismaClient.challenge.create({
     data: {
       title: "Build a Musical Instrument",
-      description: "JavaScript is versatile and friendly for all kinds of work. Today, we'll build a musical instrument Enjoy!",
-      instructions: "These are sample instructions.",
+      description: testMarkdown,
+      instructions: testMarkdown,
       thread: {
         create: {}
       },

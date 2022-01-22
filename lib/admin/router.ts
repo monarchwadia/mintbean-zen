@@ -81,8 +81,15 @@ adminRouter.post("/challenge/create", adminOnly, async (ctx) => {
     })
   }
 
+  console.log(value);
+
   const newChallenge = await prismaClient.challenge.create({
-    data: value
+    data: {
+      ...value,
+      thread: {
+        create: {}
+      }
+    }
   });
 
   flash(ctx, {

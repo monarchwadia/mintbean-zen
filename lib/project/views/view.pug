@@ -1,6 +1,7 @@
 extends /common/views/layout.pug
 include /thread/mixin/thread
 include /common/views/mixins/card
+include /common/views/mixins/markdown
 
 block content
   div.section
@@ -9,11 +10,11 @@ block content
     +card()
       div.text-lg #{project.user.name}
   div.section 
-    div #{project.description}
+    +markdown(project.description)
   div.section 
     h3.text-lg.bold Instructions
   div.section
-    div #{project.instructions}
+    +markdown(project.instructions)
   if !"THREADS_ARE_DISABLED_RIGHT_NOW"
     .section 
       +thread(project.thread, commentTree)
