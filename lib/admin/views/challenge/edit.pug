@@ -6,4 +6,4 @@ block content
     h2.text-lg.bold Admin Panel → Challenges →
     h1.text-xl.bold #{challenge.title}
   .section
-    +challenge_form(challenge)(action="/admin/challenge/" + challenge.id method="PUT")
+    +challenge_form(challenge)(action="/admin/challenge/" + challenge.id + "/edit")

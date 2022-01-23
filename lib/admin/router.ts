@@ -3,9 +3,10 @@ import Joi from "joi";
 import KoaRouter from "koa-router"
 import { prismaClient } from "../../prismaClient";
 import { getChallenges } from "../challenge/dao";
+import setChallengeById from "../challenge/middleware";
 import { adminOnly } from "../common/middleware/adminOnly.middleware";
 import { flash } from "../common/utils/flash";
-import { bang } from "../common/utils/http";
+import { bang, bangRedirect } from "../common/utils/http";
 import { MintbeanRouterState } from "../state/type";
 
 export const adminRouter = new KoaRouter<MintbeanRouterState>();
@@ -42,6 +43,59 @@ adminRouter.get("/challenge/:id/edit", async (ctx) => {
   });
   
   return ctx.render("admin/views/challenge/edit", { challenge })
+})
+
+adminRouter.post("/challenge/:id/edit", setChallengeById({ require: true }), async (ctx) => {
+  const schema = Joi.object({
+    id: Joi.string(), // gets removed later
+    title: Joi.string().trim().min(1).max(64).required(),
+    description: Joi.string().trim().min(1).max(140).required(),
+    instructions: Joi.string().trim().min(1).required(),
+  }).required()
+
+  const results = schema.validate(ctx.request.body);
+
+  if (results.error) {
+    return bangRedirect(ctx, `/admin/challenge/${ctx.params.id}/edit`, {
+      error: results.error.message
+    });
+  }
+
+  const { value } = results;
+
+  // IMPORTANT: delete the ID
+  delete value.id;
+
+  // title is unique 
+
+  
+  const existingChallenge = await prismaClient.challenge.findUnique({
+    where: {
+      title: value.title
+    }
+  });
+
+
+  if (existingChallenge && existingChallenge.id !== ctx.params.id) {
+    return bangRedirect(ctx, `/admin/challenge/${ctx.params.id}/edit`, {
+      error: "Challenge with that title already exists."
+    });
+  }
+
+  const updatedChallenge = await prismaClient.challenge.update({
+    where: { id: ctx.params.id },
+    data: {
+      ...value,
+    }
+  });
+
+  flash(ctx, {
+    success: "Successfully updated challenge."
+  }, {
+    persistent: true
+  })
+
+  return ctx.redirect(`/admin/challenge/${updatedChallenge.id}`)
 })
 
 adminRouter.post("/challenge/create", adminOnly, async (ctx) => {

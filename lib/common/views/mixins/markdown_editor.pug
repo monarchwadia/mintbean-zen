@@ -1,6 +1,6 @@
 mixin markdown_editor(name, initial_value)
   - id = "markdown-editor-" + Math.random()
-  textarea(name='description' id=id) #{initial_value || ''}
+  textarea(name=name id=id) #{initial_value || ''}
   script.
     window.addEventListener('load', () => {
       function makeSimpleMde(id) {

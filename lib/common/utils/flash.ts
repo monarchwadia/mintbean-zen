@@ -2,10 +2,10 @@ import { Context } from "koa";
 import { Flash } from "../../state/type";
 import { MintbeanSession } from "../types";
 
-type Options = {
+export type FlashOptions = {
   persistent: boolean
 }
-export const flash = (ctx: Context, flash: Flash, options?: Options) => {
+export const flash = (ctx: Context, flash: Flash, options?: FlashOptions) => {
   const session: MintbeanSession | null = ctx.session;
   const state = ctx.state;
 

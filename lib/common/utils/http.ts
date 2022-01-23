@@ -3,10 +3,13 @@ import {StatusCodes, getReasonPhrase} from "http-status-codes";
 import { Flash, MintbeanRouterState } from "../../state/type";
 import { ValidationError, ValidationResult } from "joi";
 import { logger } from "../../logger";
-import { flash } from "./flash";
+import { flash, FlashOptions } from "./flash";
+
 
 type BangOptions = {
-  status: StatusCodes;
+  flashOptions?: FlashOptions;
+  redirectTo?: string;
+  status?: StatusCodes;
   flash?: Flash;
   locals?: any;
 }
@@ -20,18 +23,31 @@ export function bang(ctx: Context, view: string, options?: BangOptions) {
 
   // final options
   const opts = {...defaultOptions, ...(options || {})}
-  
+
   // if the message was not set manually, then set it automatically
   if (opts.flash === undefined) {
-    opts.flash = { error:  getReasonPhrase(opts.status) }
+    const reasonPhrase = opts.status ? getReasonPhrase(opts.status) : getReasonPhrase(StatusCodes.INTERNAL_SERVER_ERROR);
+    opts.flash = { error: reasonPhrase }
   }
 
+  if (opts.redirectTo) {
+    // redirect
+
+    flash(ctx, opts.flash, { persistent: true });
+    return ctx.redirect(opts.redirectTo);
+  } else {
   // render
 
-  ctx.status = opts.status;
-  flash(ctx, opts.flash);
+  if (opts.status) {
+    ctx.status = opts.status;
+  }
+  flash(ctx, opts.flash, opts.flashOptions);
   console.log("LOCALS", view, opts.locals)
   return ctx.render(view, opts.locals);
+  }
+  
+
+
 }
 
 export function bangLogError500(ctx: Context, view: string, error: Error | any) {
@@ -50,4 +66,14 @@ export function bang404(ctx: Context) {
     return bang(ctx, "common/views/404.pug", {
       status: 404
     })
+}
+
+export function bangRedirect(ctx: Context, redirectToPath: string, flash: Flash) {
+  return bang(ctx, "", {
+    redirectTo: redirectToPath,
+    flash,
+    flashOptions: {
+      persistent: true
+    }
+  })
 }
