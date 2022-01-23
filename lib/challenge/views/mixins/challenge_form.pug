@@ -15,11 +15,23 @@ mixin challenge_form(the_challenge)
 
   script.
     window.addEventListener('load', () => {
+      function makeSimpleMde(id) {
+        new SimpleMDE({
+          element: document.getElementById(id),
+          previewRender: (plainText, preview) => {
+            window.utils
+              .requestMarkdownPreview(plainText)
+              .then((html) => preview.innerHTML = `<div class="markdown">${html}</div>` )
+              .catch(() => preview.innerHTML = `Failed to load preview.`)
+            
+            return "Loading...";
+          }
+        });   
+      }
       const descriptionId = "#{descriptionId}";
       const instFieldId = "#{instFieldId}"
 
-      new SimpleMDE({ element: document.getElementById(descriptionId)  }); 
-      new SimpleMDE({ element: document.getElementById(instFieldId)  }); 
-
+      makeSimpleMde(descriptionId)
+      makeSimpleMde(instFieldId)
     })
       

@@ -15,7 +15,8 @@ import { adminRouter } from './admin/router';
 import { persistentFlashMiddleware } from './common/middleware/persistentFlash.middleware';
 import { relativeTimeFromNow, formatDatetime } from './common/views/helpers/time';
 import { projectRouter } from './project/router';
-import { processMarkdown } from './common/views/helpers/sanitization';
+import { processMarkdown } from './common/views/helpers/markdown';
+import { markdownPreviewRouter } from './markdown-preview/router';
 
 
 export const buildApp = () => {
@@ -53,6 +54,7 @@ export const buildApp = () => {
   app.use(mount("/challenge", challengeRouter.routes()));
   app.use(mount("/admin", adminRouter.routes()));
   app.use(mount("/project", projectRouter.routes()));
+  app.use(mount("/markdown-preview", markdownPreviewRouter.routes()));
 
   return app;
 }

@@ -1,3 +1,8 @@
+/* SimpleMDE adds its own styles, so neutralize those first */
+.CodeMirror {
+  font-weight: normal;
+}
+
 /* Based on http://kevinburke.bitbucket.org/markdowncss/ */
 
 .markdown {

@@ -1,12 +1,11 @@
 import { Middleware } from "koa";
 import { MintbeanRouterState } from "../../state/type";
-import { MintbeanSession } from "../types";
 import { flash } from "../utils/flash";
 
-export const adminOnly: Middleware<MintbeanRouterState> = async (ctx, next) => {
-  if (!ctx.state.isAdmin) {
+export const requireAuth: Middleware<MintbeanRouterState> = async (ctx, next) => {
+  if (!ctx.state.isLoggedIn) {
     flash(ctx, {
-      error: "Access denied. You must be admin."
+      error: "You must be logged in."
     }, { persistent: true})
 
     return ctx.redirect("/");
