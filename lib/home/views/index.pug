@@ -3,12 +3,16 @@ include /common/views/mixins/markdown
 include /common/views/mixins/card
 
 block content
-  .section Mintbean's challenges help developers and designers get hired, upgrade their skills, and fall in love with their craft. 
+  .section
+    h1.text-xl A mindful way to get hired.
+  .section Mintbean's challenges help developers and designers get into productive flow states, upgrade their skills, fall in love with their craft, and get hired.
   .section 
     p 🎁 Mintbean's hiring challenges are free forever.
     p 👾 Join 4,000+ other makers on our 
       a(href="/pages/discord") Discord Server
     p 👉 The next hiring challenge will be released on Jan 5th
+  .section
+    h2.text-xl Current challenges
   for challenge in challenges
     div.section
       +card()
