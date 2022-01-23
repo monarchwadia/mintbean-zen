@@ -1,6 +1,7 @@
 mixin challenge_headers()
   .section 
     .flex.flex-row.gap-2
-      a(href="/challenge/" + challenge.id).btn-white Description
+      a(href="/challenge/" + challenge.id + "/submit").btn-pink Submit
       a(href="/challenge/" + challenge.id + "/gallery").btn-white Gallery
-      a(href="/challenge/" + challenge.id + "/submit").btn-white Submit
+      if isAdmin
+        a(href="/admin/challenge/" + challenge.id + "/edit").btn-red Edit

@@ -25,7 +25,11 @@ async function seed() {
   const musicalInstrumentChallenge = await prismaClient.challenge.create({
     data: {
       title: "Build a Musical Instrument",
-      description: testMarkdown,
+      description: `
+Browser APIs have gotten very powerful over the years. Put your creativity to use. Build a musical instrument that will wow your friends.
+
+\`Javascript\`, \`Typescript\`, \`Web Audio API\`
+      `,
       instructions: testMarkdown,
       thread: {
         create: {}
@@ -120,7 +124,11 @@ async function seed() {
   await prismaClient.challenge.create({
     data: {
       title: "Create a paint app",
-      description: "Paint apps will help you understand click event handlers, the canvas API, and SVG elements.",
+      description: `
+Paint apps will help you understand click event handlers, the canvas API, and SVG elements.
+
+\`JavaScript\`, \`Typescript\`, \`Canvas API\`, \`SVG\`
+`,
       instructions: "These are sample instructions.",
       thread: {
         create: {

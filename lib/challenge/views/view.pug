@@ -7,10 +7,9 @@ block content
   +challenge_headers()
   div.section
     h1.text-xl.bold #{challenge.title}
-  div.section 
     +markdown(challenge.description)
   div.section 
-    h3.text-lg.bold Instructions
+    h3.text-xl.bold Instructions
   div.section
     +markdown(challenge.instructions)
   if !"THREADS_ARE_DISABLED_RIGHT_NOW"
