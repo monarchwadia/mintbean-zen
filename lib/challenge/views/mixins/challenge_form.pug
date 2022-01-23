@@ -1,37 +1,13 @@
+include /common/views/mixins/markdown_editor
+
 mixin challenge_form(the_challenge)
-  - descriptionId = "desc-field-" + Math.random()
-  - instFieldId = "inst-field-" + Math.random()
-  
   form.form(action=attributes.action method=attributes.method || "POST")
     if the_challenge && the_challenge.id
       input(type='hidden' name='id' value=the_challenge && the_challenge.id || '')
     label Title
       input(type='text' name='title' value=the_challenge && the_challenge.title || '')
     label Description
-      textarea(name='description' id=descriptionId) #{the_challenge && the_challenge.description || ''}
+      +markdown_editor('description', the_challenge && the_challenge.description || "")
     label Instructions
-      textarea(name='instructions' id=instFieldId) #{the_challenge && the_challenge.instructions || ''}
+      +markdown_editor('instructions', the_challenge && the_challenge.instructions || "")
     input(type='submit', value="Submit")
-
-  script.
-    window.addEventListener('load', () => {
-      function makeSimpleMde(id) {
-        new SimpleMDE({
-          element: document.getElementById(id),
-          previewRender: (plainText, preview) => {
-            window.utils
-              .requestMarkdownPreview(plainText)
-              .then((html) => preview.innerHTML = `<div class="markdown">${html}</div>` )
-              .catch(() => preview.innerHTML = `Failed to load preview.`)
-            
-            return "Loading...";
-          }
-        });   
-      }
-      const descriptionId = "#{descriptionId}";
-      const instFieldId = "#{instFieldId}"
-
-      makeSimpleMde(descriptionId)
-      makeSimpleMde(instFieldId)
-    })
-      
