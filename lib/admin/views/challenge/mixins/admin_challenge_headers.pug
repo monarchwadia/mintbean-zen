@@ -1,0 +1,5 @@
+mixin admin_challenge_headers()
+  .section 
+    .flex.flex-row.gap-2
+      a(href="/challenge/" + challenge.id).btn-white Challenge
+      a(href="/admin/challenge/" + challenge.id + "/edit").btn-red Edit

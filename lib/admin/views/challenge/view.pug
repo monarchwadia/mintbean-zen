@@ -1,6 +1,8 @@
 extends /common/views/layout.pug
+include /admin/views/challenge/mixins/admin_challenge_headers
 
 block content
+  +admin_challenge_headers()
   div.section
     h2.text-lg.bold Admin Panel → Challenges →
     h1.text-xl.bold #{challenge.title}
