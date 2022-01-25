@@ -1,5 +1,8 @@
-mixin admin_challenge_headers()
-  .section 
-    .flex.flex-row.gap-2
-      a(href="/challenge/" + challenge.id).btn-white Challenge
-      a(href="/admin/challenge/" + challenge.id + "/edit").btn-red Edit
+include /common/views/mixins/markdown
+
+mixin admin_challenge_headers(challenge)
+  h1.text-xl.bold #{challenge.title}
+  +markdown(challenge.description)
+  .section.flex.flex-row.gap-2
+    a(href="/challenge/" + challenge.id).btn-white Challenge
+    a(href="/admin/challenge/" + challenge.id + "/edit").btn-red Edit

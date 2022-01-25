@@ -1,0 +1,7 @@
+extends /common/views/layout
+include /challenge/views/mixins/challenge_headers
+include /common/views/mixins/markdown
+
+block content
+  div.section
+    +challenge_headers(challenge)

@@ -38,3 +38,12 @@ challengeRouter.get("/:id/gallery", setChallengeById({ require: true }), async (
     projects
   })
 });
+
+challengeRouter.get("/:id/submit-project", setChallengeById({ require: true }), async (ctx) => {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const challenge = ctx.state.challenge!;
+
+  await ctx.render("challenge/views/submit_project", {
+    challenge
+  })
+})

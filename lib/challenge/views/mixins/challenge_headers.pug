@@ -1,8 +1,12 @@
-mixin challenge_headers()
+include /common/views/mixins/markdown
+
+mixin challenge_headers(challenge)
+  h1.text-xl.bold #{challenge.title}
+  +markdown(challenge.description)
   .section 
     .flex.flex-row.gap-2
       a(href="/challenge/" + challenge.id).btn-white Challenge
       a(href="/challenge/" + challenge.id + "/gallery").btn-white Gallery
-      a(href="/challenge/" + challenge.id + "/submit").btn-pink Submit
+      a(href="/challenge/" + challenge.id + "/submit-project").btn-pink Submit
       if isAdmin
         a(href="/admin/challenge/" + challenge.id).btn-red Admin View

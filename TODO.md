@@ -1,7 +1,13 @@
-# NEXT!
-- Disable threads for now
+# Todo
 - User can submit projects on challenges (plaintext)
 - User can see other projects that were submitted (plaintext)
+
+
+
+
+== Features 
+# NEXT!
+- Enable threads
 - Projects have comment threads
 - Challenges have comment threads
 - User can leave comments on challenges (plaintext)
