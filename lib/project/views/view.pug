@@ -5,14 +5,14 @@ include /common/views/mixins/markdown
 
 block content
   div.section
-    h1.text-xl.bold #{project.title}
+    h1.text-xl #{project.title}
   div.section
     +card()
       div.text-lg #{project.user.name}
   div.section 
     +markdown(project.description)
   div.section 
-    h3.text-lg.bold Instructions
+    h3.text-lg Instructions
   div.section
     +markdown(project.instructions)
   if !"THREADS_ARE_DISABLED_RIGHT_NOW"

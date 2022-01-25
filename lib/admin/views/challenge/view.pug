@@ -2,10 +2,10 @@ extends /common/views/layout.pug
 include /admin/views/challenge/mixins/admin_challenge_headers
 
 block content
-  +admin_challenge_headers(challenge)
+  +admin_challenge_headers(challenge, "Admin Panel")
   .section
     a(href="/admin/challenge/" + challenge.id + "/edit") Edit
   .section 
-    h2.text-lg.bold Statistics 
+    h2.text-lg Statistics 
     div coming soon
   

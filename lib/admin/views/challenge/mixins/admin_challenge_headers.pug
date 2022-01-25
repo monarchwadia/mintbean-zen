@@ -1,7 +1,11 @@
 include /common/views/mixins/markdown
 
-mixin admin_challenge_headers(challenge)
-  h1.text-xl.bold #{challenge.title}
+mixin admin_challenge_headers(challenge, page_title="")
+  if page_title
+    p.text-lg #{challenge.title}
+    h1.text-xl #{page_title}
+  else
+    h1.text-xl #{challenge.title}
   +markdown(challenge.description)
   .section.flex.flex-row.gap-2
     a(href="/challenge/" + challenge.id).btn-white Challenge

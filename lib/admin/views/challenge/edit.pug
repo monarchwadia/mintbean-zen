@@ -3,6 +3,6 @@ include /challenge/views/mixins/challenge_form
 include /admin/views/challenge/mixins/admin_challenge_headers
 
 block content
-  +admin_challenge_headers(challenge)
+  +admin_challenge_headers(challenge, "Edit Challenge")
   .section
     +challenge_form(challenge)(action="/admin/challenge/" + challenge.id + "/edit")

@@ -3,12 +3,12 @@ include /common/views/mixins/card
 
 block content
   div.section
-    h1.text-xl.bold Admin Panel → Challenges
+    h1.text-xl Admin Panel → Challenges
   div.section.flex.flex-col.gap-5
     div
       a.btn-pink(href="/admin/challenge/create") Create a new challenge
     for challenge in challenges
       +card()
-        p.text-lg.bold #{challenge.title}
+        p.text-lg #{challenge.title}
         hr
         a(href="/admin/challenge/" + challenge.id) More

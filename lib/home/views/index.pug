@@ -16,7 +16,7 @@ block content
   for challenge in challenges
     div.section
       +card()
-        div.text-lg.bold #{challenge.title}
+        div.text-lg #{challenge.title}
         hr
         div(style="min-height: 10vh; overflow-y: hidden; scroll: none; position: relative;")
           +markdown(challenge.description)

@@ -4,9 +4,7 @@ include /thread/mixin/thread
 include /challenge/views/mixins/challenge_headers
 
 block content
-  +challenge_headers(challenge)
-  div.section 
-    h3.text-xl.bold Instructions
+  +challenge_headers(challenge, "Challenge Instructions")
   div.section
     +markdown(challenge.instructions)
   if !"THREADS_ARE_DISABLED_RIGHT_NOW"

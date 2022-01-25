@@ -3,7 +3,7 @@ include /thread/mixin/thread
 include /challenge/views/mixins/challenge_headers
 
 block content
-  +challenge_headers(challenge)
+  +challenge_headers(challenge, "Project Gallery")
   div.section
     for project in projects
       div.flex.flex-col.gap-4(style="border: 4px solid var(--black); padding: 12px;")
