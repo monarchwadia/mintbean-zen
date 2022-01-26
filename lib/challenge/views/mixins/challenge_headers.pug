@@ -11,6 +11,6 @@ mixin challenge_headers(challenge, pageTitle='')
     .flex.flex-row.gap-2
       a(href="/challenge/" + challenge.id).btn-white Instructions
       a(href="/challenge/" + challenge.id + "/gallery").btn-white Gallery
-      a(href="/challenge/" + challenge.id + "/submit-project").btn-pink Submit
+      a(href="/challenge/" + challenge.id + "/submit-project").btn-green Submit
       if isAdmin
         a(href="/admin/challenge/" + challenge.id).btn-red Admin View

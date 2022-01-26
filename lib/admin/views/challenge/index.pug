@@ -6,7 +6,7 @@ block content
     h1.text-xl Admin Panel → Challenges
   div.section.flex.flex-col.gap-5
     div
-      a.btn-pink(href="/admin/challenge/create") Create a new challenge
+      a.btn-green(href="/admin/challenge/create") Create a new challenge
     for challenge in challenges
       +card()
         p.text-lg #{challenge.title}

@@ -22,12 +22,12 @@ html
           h1.text-xl Mintbean
           h2.text-lg Hiring Challenges for Junior Devs.
         div.links.flex.flex-row.gap-2
-          a.btn-pink(href="/") Home
-          a.btn-pink(href="/pages/community") Community
+          a.btn-green(href="/") Home
+          a.btn-green(href="/pages/community") Community
           if isLoggedIn
-            a.btn-pink(href="/auth/logout") Logout
+            a.btn-green(href="/auth/logout") Logout
           else
-            a.btn-pink(href="/auth/login") Login
+            a.btn-green(href="/auth/login") Login
           if isAdmin
             a.btn-red(href="/admin") Admin Panel
       div(style="padding: 48px; flex-grow: 1; margin: auto; max-width: 900px; width: 100%;").section

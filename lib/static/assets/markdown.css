@@ -41,10 +41,13 @@
   font-size: 18px;
 }
 .markdown a {
-  color: #0099ff;
+  color: var(--blue-1);
   margin: 0;
   padding: 0;
   vertical-align: baseline;
+}
+.markdown a:visited {
+  color: var(--blue-2); 
 }
 
 .markdown ul {
@@ -145,7 +148,7 @@
 .markdown hr {
   width: 25px;
   height: 3px;
-  background-color: var(--pink)
+  background-color: var(--green)
 }
 
 .markdown strong {

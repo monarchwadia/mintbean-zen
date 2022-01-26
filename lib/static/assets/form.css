@@ -28,7 +28,7 @@ form.form input[type="submit"] {
   border: none;
   padding: 18px;
   width: fit-content;
-  background-color: var(--pink);
+  background-color: var(--green);
   color: white;
   cursor: pointer;
 }

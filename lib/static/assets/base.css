@@ -9,16 +9,20 @@ body {
 }
 
 a {
-  color: var(--pink);
+  color: var(--blue-1);
   cursor: pointer;
   text-decoration: underline;
+}
+a:visited {
+  color: var(--blue-2);
 }
 
 :root {
   --black: rgb(22, 23, 24);
-  --pink: rgb(1, 195, 150);
-  --green: #56b656;
+  --green: rgb(1, 195, 150);
   --red: #ec5454;
+  --blue-1: #0099ff;
+  --blue-2: #003cac;
 
   --white-1: rgb(255, 255, 255);
   --white-2: rgb(196, 196, 196);
