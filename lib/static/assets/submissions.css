@@ -1,0 +1,18 @@
+/* Borders */
+table.submissions tr,
+table.submissions td, 
+table.submissions th  {  
+  border: 1px solid black;
+  padding: 2px;
+}
+
+table.submissions {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.submissions th {
+  font-weight: bold;
+  background-color: var(--white-4);
+  color: var(--white-1)
+}

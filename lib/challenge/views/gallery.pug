@@ -5,13 +5,18 @@ include /challenge/views/mixins/challenge_headers
 block content
   +challenge_headers(challenge, "Project Gallery")
   div.section
-    for project in projects
-      div.flex.flex-col.gap-4(style="border: 4px solid var(--black); padding: 12px;")
-        div.flex.flex-row.space-between
-          div
-            h2.text-lg #{project.title}
-            div #{project.user.name}
-          div
-            span(title=formatDatetime(project.createdAt)) #{relativeTimeFromNow(project.createdAt)}
-        div.flex
-          a.btn-pink(href="/project/" + project.id) View
+    if projects.length === 0
+      p No one has submitted a project yet.&nbsp;
+        a(href="/challenge/" + challenge.id + "/submit-project") Be the first
+    else
+      table.submissions
+        tr
+          th Name 
+          th User
+          th Date
+        for project in projects
+          tr
+            td
+              a(href="/project/" + project.id) #{project.title}
+            td #{project.user.name}
+            td(title="#{formatDatetime(project.createdAt)}")  #{relativeTimeFromNow(project.createdAt)}

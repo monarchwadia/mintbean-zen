@@ -76,6 +76,28 @@ Browser APIs have gotten very powerful over the years. Put your creativity to us
     }
   });
 
+  // MUSICAL INSTRUMENT PROJECT 0
+  const project0 = await prismaClient.project.create({
+    data: {
+      deployedUrl: "https://google.com",
+      githubUrl: "https://github.com",
+      description: "This is a nice project.",
+      title: "Something something something",
+      user: {
+        connect: {
+          id: user.id
+        }
+      },
+      challenge: {
+        connect: {
+          id: musicalInstrumentChallenge.id
+        }
+      },
+      thread: {
+        create: {}
+      },
+    }
+  })
   // MUSICAL INSTRUMENT PROJECT 1
   const project1 = await prismaClient.project.create({
     data: {
