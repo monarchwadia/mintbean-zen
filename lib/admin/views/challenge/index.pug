@@ -7,8 +7,13 @@ block content
   div.section.flex.flex-col.gap-5
     div
       a.btn-green(href="/admin/challenge/create") Create a new challenge
-    for challenge in challenges
-      +card()
-        p.text-lg #{challenge.title}
-        hr
-        a(href="/admin/challenge/" + challenge.id) More
+  .section
+    table.submissions
+      tr
+        th Title
+        th Date
+      for challenge in challenges
+        tr
+          td
+            a(href="/admin/challenge/" + challenge.id) #{challenge.title}
+          td(title="#{formatDatetime(challenge.createdAt)}")  #{relativeTimeFromNow(challenge.createdAt)}
