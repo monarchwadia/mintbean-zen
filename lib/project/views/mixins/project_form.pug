@@ -1,0 +1,16 @@
+include /common/views/mixins/markdown_editor
+
+mixin project_form(_project)
+  form.form(action=attributes.action method=attributes.method || "POST")
+    if _project && _project.id
+      input(type='hidden' name='id' value=_project.id)
+    label Title
+      input(type='text' name='title' value=_project && _project.title || '')
+    label Description
+      +markdown_editor('description', _project && _project.description || "")
+    label Link to Deployed Project
+      input(type='text' name='deployedUrl' value=_project && _project.deployedUrl || '')
+    label Link to Source Code
+      input(type='text' name='githubUrl' value=_project && _project.githubUrl || '')
+    input(type='submit', value="Submit")
+    

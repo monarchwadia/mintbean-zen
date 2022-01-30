@@ -1,21 +1,22 @@
 mixin markdown_editor(name, initial_value)
   - id = "markdown-editor-" + Math.random()
-  textarea(name=name id=id) #{initial_value || ''}
-  script.
-    window.addEventListener('load', () => {
-      function makeSimpleMde(id) {
-        new SimpleMDE({
-          element: document.getElementById(id),
-          previewRender: (plainText, preview) => {
-            window.utils
-              .requestMarkdownPreview(plainText)
-              .then((html) => preview.innerHTML = `<div class="markdown">${html}</div>` )
-              .catch(() => preview.innerHTML = `Failed to load preview.`)
-            
-            return "Loading...";
-          }
-        });   
-      }
+  .markdown-editor 
+    textarea(name=name id=id) #{initial_value || ''}
+    script.
+      window.addEventListener('load', () => {
+        function makeSimpleMde(id) {
+          new SimpleMDE({
+            element: document.getElementById(id),
+            previewRender: (plainText, preview) => {
+              window.utils
+                .requestMarkdownPreview(plainText)
+                .then((html) => preview.innerHTML = `<div class="markdown">${html}</div>` )
+                .catch(() => preview.innerHTML = `Failed to load preview.`)
+              
+              return "Loading...";
+            }
+          });   
+        }
 
-      makeSimpleMde("#{id}")
-    })
+        makeSimpleMde("#{id}")
+      })

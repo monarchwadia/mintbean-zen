@@ -157,3 +157,15 @@
 .markdown em {
   font-style: italic;
 }
+
+.markdown-editor {
+  border: 5px solid black;
+  border: 5px solid var(--black);
+  border-radius: var(--leaf-radius);
+  box-shadow: var(--leaf-shadow);
+}
+
+.markdown-editor .editor-toolbar {
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
