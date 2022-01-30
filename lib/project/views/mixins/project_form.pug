@@ -4,7 +4,9 @@ mixin project_form(_project)
   form.form(action=attributes.action method=attributes.method || "POST")
     if _project && _project.id
       input(type='hidden' name='id' value=_project.id)
-    label Title
+    if _project && _project.challengeId
+      input(type='hidden' name='challengeId' value=_project.challengeId)
+    label Title 
       input(type='text' name='title' value=_project && _project.title || '')
     label Description
       +markdown_editor('description', _project && _project.description || "")

@@ -4,8 +4,7 @@ include /common/views/mixins/markdown
 include /project/views/mixins/project_form
 
 block content
+  +challenge_headers(challenge, "Submit a Project")
   div.section
-    +challenge_headers(challenge, "Submit a Project")
-  div.section
-    +project_form()
+    +project_form({challengeId: challenge.id})(action="/project")
     
