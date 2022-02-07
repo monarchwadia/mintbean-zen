@@ -18,9 +18,7 @@ const r = (route: string, viewPath: string) => {
 }
 
 adminRouter.get("/challenge", async (ctx) => {
-  const challenges = await prismaClient.challenge.findMany({
-    where: {}
-  });
+  const challenges = await getChallenges();
   
   return ctx.render("admin/views/challenge/index", { challenges })
 })
@@ -105,12 +103,7 @@ adminRouter.post("/challenge/create", adminOnly, async (ctx) => {
   }
 
   const { value } = results;
-
-  const existingChallenge = await prismaClient.challenge.findUnique({
-    where: {
-      title: value.title
-    }
-  });
+  const existingChallenge = await findChallengeBy({ title: value.title });
 
   if (existingChallenge) {
     return bang(ctx, "admin/views/challenge/create", {
