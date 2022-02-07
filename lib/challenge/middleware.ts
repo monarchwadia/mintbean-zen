@@ -3,6 +3,7 @@ import { createTextSpan } from "typescript";
 import { prismaClient } from "../../prismaClient";
 import { bang404 } from "../common/utils/http";
 import { MintbeanRouterState } from "../state/type";
+import { findChallengeBy } from "./dao";
 
 type Options = {
   require: boolean
@@ -10,24 +11,7 @@ type Options = {
 const setChallengeById = (options?: Options): IMiddleware<MintbeanRouterState> => async (ctx, next) => {
   const isRequired = options?.require || false;
 
-  const challenge = await prismaClient.challenge.findUnique({
-    where: {
-      id: ctx.params.id
-    },
-    include: {
-      thread: {
-        include: {
-          comments: {
-            include: {
-              user: {
-
-              }
-            }
-          }
-        }
-      },
-    }
-  });
+  const challenge = await findChallengeBy({ id: ctx.params.id });
 
   if (isRequired && !challenge) {
     return bang404(ctx);

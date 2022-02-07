@@ -2,7 +2,7 @@ import { prisma } from "@prisma/client";
 import Joi from "joi";
 import KoaRouter from "koa-router"
 import { prismaClient } from "../../prismaClient";
-import { getChallenges } from "../challenge/dao";
+import { findChallengeBy, getChallenges } from "../challenge/dao";
 import setChallengeById from "../challenge/middleware";
 import { adminOnly } from "../common/middleware/adminOnly.middleware";
 import { flash } from "../common/utils/flash";
@@ -30,18 +30,12 @@ adminRouter.get("/challenge/create", async (ctx) => {
 })
 
 adminRouter.get("/challenge/:id", async (ctx) => {
-  const challenge = await prismaClient.challenge.findUnique({
-    where: { id: ctx.params.id}
-  });
-  
+  const challenge = findChallengeBy({ id: ctx.params.id });
   return ctx.render("admin/views/challenge/view", { challenge })
 })
 
 adminRouter.get("/challenge/:id/edit", async (ctx) => {
-  const challenge = await prismaClient.challenge.findUnique({
-    where: { id: ctx.params.id}
-  });
-  
+  const challenge = await findChallengeBy({ id: ctx.params.id });
   return ctx.render("admin/views/challenge/edit", { challenge })
 })
 
@@ -67,14 +61,7 @@ adminRouter.post("/challenge/:id/edit", setChallengeById({ require: true }), asy
   delete value.id;
 
   // title is unique 
-
-  
-  const existingChallenge = await prismaClient.challenge.findUnique({
-    where: {
-      title: value.title
-    }
-  });
-
+  const existingChallenge = await findChallengeBy({ title: value.title });
 
   if (existingChallenge && existingChallenge.id !== ctx.params.id) {
     return bangRedirect(ctx, `/admin/challenge/${ctx.params.id}/edit`, {
