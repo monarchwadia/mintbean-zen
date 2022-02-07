@@ -150,8 +150,6 @@ authRouter.post("/forgot-complete", async (ctx) => {
 
   const results = schema.validate(ctx.request.body);
 
-  console.log("RESULTS", results.error, results.value)
-
   const blowUp = () => bang(ctx, "auth/views/forgot_start", {
     flash: {
       error: "Password reset URL was malformed. Try resetting your password again."

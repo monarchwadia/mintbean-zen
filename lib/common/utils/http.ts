@@ -42,7 +42,6 @@ export function bang(ctx: Context, view: string, options?: BangOptions) {
     ctx.status = opts.status;
   }
   flash(ctx, opts.flash, opts.flashOptions);
-  console.log("LOCALS", view, opts.locals)
   return ctx.render(view, opts.locals);
   }
   
