@@ -16,6 +16,8 @@ model User {
   email     String   @unique
   name      String?
   passwordHash String
+  passwordResetTokenHash String?
+  passwordResetTokenExpiry DateTime?
   isAdmin   Boolean @default(false)
   projects Project[]
   comments Comment[]

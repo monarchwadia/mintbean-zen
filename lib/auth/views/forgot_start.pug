@@ -1,0 +1,10 @@
+extends /common/views/layout.pug
+
+block content
+  .section
+    h1.text-xl Forgot Password
+  .section
+    form.form(action="/auth/forgot-start" method="POST")
+      label Email
+        input(type='text' required name='email' value='' minlength="5")
+      input(type='submit', value="Submit")

@@ -8,6 +8,8 @@ type CreateUserParams = Omit<
   | "passwordHash" 
   | "id" 
   | "createdAt"
+  | "passwordResetTokenHash"
+  | "passwordResetTokenExpiry"
 > 
 & { 
   password: string;

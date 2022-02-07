@@ -1,0 +1,12 @@
+extends /common/views/layout.pug
+
+block content
+  .section
+    h1.text-xl Reset Password
+  .section
+    form.form(action="/auth/forgot-complete" method="POST")
+      input(type='hidden' name='userId' value=userId)
+      input(type='hidden' name='passwordResetToken' value=passwordResetToken)
+      label New Password
+        input(type='password' required name='newPassword' value='' minlength="5")
+      input(type='submit', value="Submit")

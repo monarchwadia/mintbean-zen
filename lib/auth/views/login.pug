@@ -1,9 +1,13 @@
 extends /common/views/layout.pug
 
 block content
-  form.form(action="/auth/login" method="POST")
-    label Email
-      input(type='text' required name='email' value='' minlength="5")
-    label Password
-      input(type='password' required name='password' value='' minlength="8" maxlength="64")
-    input(type='submit', value="Submit")
+  .section 
+    h1.text-xl Log in
+  .section
+    form.form(action="/auth/login" method="POST")
+      label Email
+        input(type='text' required name='email' value='' minlength="5")
+      label Password
+        input(type='password' required name='password' value='' minlength="8" maxlength="64")
+      a(href="/auth/forgot-start") Forgot Password
+      input(type='submit', value="Submit")
