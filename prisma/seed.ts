@@ -2,6 +2,7 @@ import { createUser } from "../lib/user/dao";
 import { prismaClient } from "../prismaClient";
 import fs from "fs";
 import path from "path";
+import { createProject } from "../lib/project/dao";
 
 const testMarkdown = fs.readFileSync(path.join(__dirname, "testMarkdown.md")).toString();
 
@@ -77,48 +78,22 @@ Browser APIs have gotten very powerful over the years. Put your creativity to us
   });
 
   // MUSICAL INSTRUMENT PROJECT 0
-  const project0 = await prismaClient.project.create({
-    data: {
+  const project0 = await createProject({
       deployedUrl: "https://google.com",
       githubUrl: "https://github.com",
       description: "This is a nice project.",
       title: "Something something something",
-      user: {
-        connect: {
-          id: user.id
-        }
-      },
-      challenge: {
-        connect: {
-          id: musicalInstrumentChallenge.id
-        }
-      },
-      thread: {
-        create: {}
-      },
-    }
+      userId: user.id,
+      challengeId: musicalInstrumentChallenge.id
   })
   // MUSICAL INSTRUMENT PROJECT 1
-  const project1 = await prismaClient.project.create({
-    data: {
+  const project1 = await createProject({
       deployedUrl: "https://google.com",
       githubUrl: "https://github.com",
       description: "Some description about this project I just made.",
       title: "Something",
-      user: {
-        connect: {
-          id: user.id
-        }
-      },
-      challenge: {
-        connect: {
-          id: musicalInstrumentChallenge.id
-        }
-      },
-      thread: {
-        create: {}
-      },
-    }
+      userId: user.id,
+      challengeId: musicalInstrumentChallenge.id
   })
   const projectComment1 = await prismaClient.comment.create({
     data: {

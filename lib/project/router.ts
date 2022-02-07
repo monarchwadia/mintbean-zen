@@ -6,6 +6,7 @@ import { flash } from "../common/utils/flash";
 import { bang, bangRedirect } from "../common/utils/http";
 import { MintbeanRouterState } from "../state/type";
 import { createCommentTree } from "../thread/utils";
+import { createProject } from "./dao";
 import setProjectById from "./middleware";
 
 export const projectRouter = new KoaRouter<MintbeanRouterState>();
@@ -33,36 +34,15 @@ projectRouter.post("/", requireAuth, async (ctx) => {
 
   const results = schema.validate(ctx.request.body);
 
-  console.log("REFERER", ctx.headers.referer)
-
   if (results.error) {
     return bangRedirect(ctx, ctx.headers.referer || "/", {
       error: results.error.message
     })
   }
 
-  const { title, description, challengeId, deployedUrl, githubUrl } = results.value;
-
-  const newProject = await prismaClient.project.create({
-    data: {
-      title,
-      description,
-      deployedUrl,
-      githubUrl,
-      thread: {
-        create: {}
-      },
-      challenge: {
-        connect: {
-          id: challengeId
-        }
-      },
-      user: {
-        connect: {
-          id: ctx.state.currentUserId,
-        }
-      }
-    },
+  const newProject = await createProject({
+    ...results.value,
+    userId: ctx.state.currentUserId
   })
 
   flash(ctx, {
